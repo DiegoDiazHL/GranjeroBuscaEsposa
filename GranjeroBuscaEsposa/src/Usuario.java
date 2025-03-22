@@ -14,6 +14,10 @@ public class Usuario {
         this.resistencia = resistencia;
     }
 
+    public String toCSV(){
+        return this.nombre + "," + this.monedero + "," + this.vehiculo + "," + this.nivel + "," + this.resistencia;
+    }
+
     public String getNombre() {
         return nombre;
     }
