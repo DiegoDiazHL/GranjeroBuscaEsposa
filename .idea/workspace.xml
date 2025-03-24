@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="rellenar algunas ramas de la rama Rodrigo">
+    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="rellenar algunas ramas de la rama Rodrigo, de nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Huerta.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Huerta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Planta.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Planta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Huerta/Terreno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ficheros/nuevaPartida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ficheros/nuevaPartida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Usuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742560644929</updated>
-      <workItem from="1742803572701" duration="1619000" />
+      <workItem from="1742803572701" duration="2792000" />
     </task>
     <task id="LOCAL-00001" summary="crear las clases de la rama rodrigo">
       <option name="closed" value="true" />
@@ -121,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742804877572</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="rellenar algunas ramas de la rama Rodrigo, de nuevo">
+      <option name="closed" value="true" />
+      <created>1742806010543</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742806010543</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +133,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="crear las clases de la rama rodrigo" />
     <MESSAGE value="rellenar algunas ramas de la rama Rodrigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="rellenar algunas ramas de la rama Rodrigo" />
+    <MESSAGE value="rellenar algunas ramas de la rama Rodrigo, de nuevo" />
+    <option name="LAST_COMMIT_MESSAGE" value="rellenar algunas ramas de la rama Rodrigo, de nuevo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

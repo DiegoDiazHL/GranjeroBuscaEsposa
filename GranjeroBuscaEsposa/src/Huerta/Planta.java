@@ -2,7 +2,7 @@ package Huerta;
 
 import java.util.Random;
 
-public class Planta extends Huerta {
+public class Planta {
     private String nombre;
     private int riego;
     private int tamaño;
@@ -56,6 +56,19 @@ public class Planta extends Huerta {
 
     public int getCantidadHortalizas() {
         return cantidadHortalizas;
+    }
+
+    public void setCantidadHortalizas(int cantidadHortalizas) {
+        this.cantidadHortalizas = cantidadHortalizas;
+    }
+
+    public void crecer() {
+        this.tamaño += 1;
+        System.out.println("La planta " + nombre + " ha crecido. Tamaño actual: " + tamaño);
+    }
+
+    public boolean listaParaCosechar() {
+        return this.tamaño >= 10;
     }
 
     @Override

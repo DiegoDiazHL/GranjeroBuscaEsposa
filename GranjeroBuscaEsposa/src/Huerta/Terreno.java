@@ -1,20 +1,23 @@
 package Huerta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Terreno {
-    private Planta[] hortalizas;
+    protected List<Planta> hortalizas;
 
     public Terreno() {
-        hortalizas = new Planta[10];
-        hortalizas[0] = new Planta("Tomate", 5, 10, 2.5);
-        hortalizas[1] = new Planta("Lechuga", 3, 8, 1.5);
-        hortalizas[2] = new Planta("Zanahoria", 4, 12, 3.0);
-        hortalizas[3] = new Planta("Pepino", 6, 15, 4.0);
-        hortalizas[4] = new Planta("Pimiento", 2, 7, 1.0);
-        hortalizas[5] = new Planta("Calabacín", 5, 9, 2.0);
-        hortalizas[6] = new Planta("Berenjena", 3, 11, 2.8);
-        hortalizas[7] = new Planta("Cebolla", 4, 13, 3.5);
-        hortalizas[8] = new Planta("Ajo", 6, 14, 4.5);
-        hortalizas[9] = new Planta("Patata", 2, 6, 1.2);
+        hortalizas = new ArrayList<>();
+        hortalizas.add(new Planta("Tomate", 5, 10, 2.5));
+        hortalizas.add(new Planta("Lechuga", 3, 8, 1.5));
+        hortalizas.add(new Planta("Zanahoria", 4, 12, 3.0));
+        hortalizas.add(new Planta("Pepino", 6, 15, 4.0));
+        hortalizas.add(new Planta("Pimiento", 2, 7, 1.0));
+        hortalizas.add(new Planta("Calabacín", 5, 9, 2.0));
+        hortalizas.add(new Planta("Berenjena", 3, 11, 2.8));
+        hortalizas.add(new Planta("Cebolla", 4, 13, 3.5));
+        hortalizas.add(new Planta("Ajo", 6, 14, 4.5));
+        hortalizas.add(new Planta("Patata", 2, 6, 1.2));
     }
 
     public int calcularTotalHortalizas() {
@@ -23,6 +26,16 @@ public class Terreno {
             total += hortaliza.getCantidadHortalizas();
         }
         return total;
+    }
+
+    public void plantar(Planta nuevaPlanta) {
+        hortalizas.add(nuevaPlanta);
+        System.out.println("Planta " + nuevaPlanta.getNombre() + " plantada.");
+    }
+
+    public void eliminarPlanta(String nombre) {
+        hortalizas.removeIf(hortaliza -> hortaliza.getNombre().equals(nombre));
+        System.out.println("Planta " + nombre + " eliminada.");
     }
 
     public static void main(String[] args) {
