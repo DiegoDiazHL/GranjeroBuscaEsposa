@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/cargarPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/nuevaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/nuevaPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Vehiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Vehiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ficheros/nuevaPartida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ficheros/nuevaPartida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Vehiculo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/partida1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/cargarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/CargarPartida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/nuevaPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/NuevaPartida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Rodrigo" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -40,6 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Ejecutable.executor": "Run",
     "Application.nuevaPartida.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -48,7 +49,14 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Ejecutable">
+    <configuration name="Ejecutable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ejecutable" />
+      <module name="GranjeroBuscaEsposa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="nuevaPartida" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ficheros.nuevaPartida" />
       <module name="GranjeroBuscaEsposa" />
@@ -64,6 +72,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ejecutable" />
         <item itemvalue="Application.nuevaPartida" />
       </list>
     </recent_temporary>

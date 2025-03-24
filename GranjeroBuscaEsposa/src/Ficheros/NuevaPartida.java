@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class nuevaPartida {
+public class NuevaPartida {
     public static File crearPartida(){ //Uso static File para poder usar el fichero en otra clase
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el nombre de tu partida");
@@ -20,7 +20,6 @@ public class nuevaPartida {
         } catch (IOException e) {
             System.out.println("Hubo un error al crear el archivo.");
         }
-        sc.close();
         return f;
     }
 }
