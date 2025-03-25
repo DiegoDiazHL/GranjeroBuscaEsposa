@@ -1,13 +1,11 @@
 package Huerta;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Terreno {
-    protected List<Planta> hortalizas;
+        ArrayList<Huerta.Planta> hortalizas= new ArrayList<>();
 
     public Terreno() {
-        hortalizas = new ArrayList<>();
         hortalizas.add(new Planta("Tomate", 5, 10, 2.5));
         hortalizas.add(new Planta("Lechuga", 3, 8, 1.5));
         hortalizas.add(new Planta("Zanahoria", 4, 12, 3.0));

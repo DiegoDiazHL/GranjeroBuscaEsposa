@@ -49,12 +49,12 @@ public class Huerta extends Terreno {
         }
     }
 
-    public static void main(String[] args) {
-        Huerta huerta = new Huerta();
-        huerta.labrar();
-        huerta.regar();
-        huerta.mostrarEstado();
-        huerta.cosechar();
-        huerta.mostrarEstado();
+   // public static void main(String[] args) {
+    //    Huerta huerta = new Huerta();
+      //  huerta.labrar();
+       // huerta.regar();
+       // huerta.mostrarEstado();
+       // huerta.cosechar();
+       // huerta.mostrarEstado();
     }
-}
+//}
