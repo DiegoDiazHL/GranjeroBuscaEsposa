@@ -6,7 +6,7 @@ public class Usuario {
     private Vehiculo vehiculo;
     private int experiencia = 0;
     private int nivel;
-    private int resistencia;
+    private int resistencia = 100;
 
     public Usuario(String nombre, int monedero, Vehiculo vehiculo, int nivel, int resistencia) {
         this.nombre = nombre;
@@ -79,6 +79,7 @@ public class Usuario {
         while (this.experiencia >= 100 && this.nivel < 10) { //Establecer si la experiencia ganada es igual o superior a 100 y el nivel sea inferior a 10 le suba un nivel y establezca la exp en 0.
             this.experiencia -= 100; // Asi no pierdes la exp restante ej si tienes 140 te deja los 40 sobrantes
             this.nivel += 1;
+            this.resistencia += 100;
         }
         if (this.nivel >= 10) {
             this.experiencia = 100; // establece el maximo.

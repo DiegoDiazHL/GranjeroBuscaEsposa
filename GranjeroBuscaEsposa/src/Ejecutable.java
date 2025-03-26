@@ -1,7 +1,9 @@
 import Ficheros.CargarPartida;
 import Ficheros.NuevaPartida;
-
+import Terrenos.*;
 import java.util.Scanner;
+
+import static java.lang.Boolean.FALSE;
 
 public class Ejecutable {
     // Primer Menú Inicial
@@ -36,4 +38,15 @@ public class Ejecutable {
 
         sc.close();  // Cerrar el Scanner
     }
+    public void labrar(Plantas plantas){
+        Scanner sc = new Scanner(System.in);
+        if(plantas.isLabrado() == FALSE){
+            System.out.println("¿Quieres labrar la tierra? Si/No");
+            String a = sc.nextLine();
+            if(a.equalsIgnoreCase("si")){
+                
+            }
+        }
+    }
+
 }

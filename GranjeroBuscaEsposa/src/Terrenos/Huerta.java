@@ -18,7 +18,7 @@ public class Huerta extends Terreno{
 
     @Override
     public String toString() {
-        return "Huerta{" +
+        return super.toString() + "Huerta{" +
                 "labrado=" + labrado +
                 '}';
     }
