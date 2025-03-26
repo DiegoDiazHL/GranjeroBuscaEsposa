@@ -2,22 +2,15 @@ package Usuario_Vehiculo;
 
 public class Usuario {
     private String nombre;
-    private int monedero;
+    private int monedero = 100;
     private Vehiculo vehiculo;
     private int experiencia = 0;
-    private int nivel;
+    private int nivel = 1;
     private int resistencia = 100;
 
-    public Usuario(String nombre, int monedero, Vehiculo vehiculo, int nivel, int resistencia) {
+    public Usuario(String nombre, Vehiculo vehiculo) {
         this.nombre = nombre;
-        this.monedero = monedero;
         this.vehiculo = vehiculo;
-        this.nivel = nivel;
-        this.resistencia = resistencia;
-    }
-
-    public String toCSV(){
-        return this.nombre + "," + this.monedero + "," + this.vehiculo + "," + this.nivel + "," + this.resistencia;
     }
 
     public String getNombre() {
@@ -68,6 +61,11 @@ public class Usuario {
         this.resistencia = resistencia;
     }
 
+    public String toCSV(){
+        return this.nombre + "," + this.monedero + "," + this.vehiculo + "," + this.nivel + "," + this.resistencia;
+    }
+
+
     public void ganarExperiencia(int puntos) {
         if (nivel < 100) {
             this.experiencia += puntos;
@@ -94,10 +92,9 @@ public class Usuario {
         return this.nivel * 10; // Cada nivel aumenta el máximo en 10 se puede variar según veamos
     }
 
-
     @Override
     public String toString() {
-        return "Usuario_Vehiculo.Usuario{" +
+        return "Usuario{" +
                 "nombre='" + nombre + '\'' +
                 ", monedero=" + monedero +
                 ", vehiculo=" + vehiculo +

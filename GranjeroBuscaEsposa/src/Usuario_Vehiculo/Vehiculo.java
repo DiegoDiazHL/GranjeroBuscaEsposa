@@ -1,7 +1,7 @@
 package Usuario_Vehiculo;
 
 public class Vehiculo {
-    private String nombre;
+    private String nombre ;
     private String funcion;
     private int precio;
     private int categoria;

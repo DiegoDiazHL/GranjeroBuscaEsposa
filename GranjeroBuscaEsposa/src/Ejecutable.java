@@ -1,6 +1,9 @@
 import Ficheros.CargarPartida;
 import Ficheros.NuevaPartida;
 import Terrenos.*;
+import Usuario_Vehiculo.Usuario;
+import Usuario_Vehiculo.Vehiculo;
+
 import java.util.Scanner;
 
 import static java.lang.Boolean.FALSE;
@@ -8,6 +11,8 @@ import static java.lang.Boolean.FALSE;
 public class Ejecutable {
     // Primer Menú Inicial
     public static void main(String[] args) {
+        Vehiculo v1 = new Vehiculo("Tractor","Labrar",1000,1);
+        Vehiculo v0 = new Vehiculo(null,null,0,0);
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -44,9 +49,17 @@ public class Ejecutable {
             System.out.println("¿Quieres labrar la tierra? Si/No");
             String a = sc.nextLine();
             if(a.equalsIgnoreCase("si")){
-                
+
             }
         }
+    }
+    public void crearUsuario(){
+        Scanner sc = new Scanner(System.in);
+        Vehiculo v0 = new Vehiculo(null,null,0,0);
+
+        System.out.println("Nombre de usuario");
+        String a = sc.nextLine();
+        Usuario u1 = new Usuario(a,v0);
     }
 
 }
