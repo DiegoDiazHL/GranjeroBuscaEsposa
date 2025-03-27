@@ -32,7 +32,7 @@ public class Ejecutable {
                     System.out.println("Selecciona un nombre para crear tu partida");
                     NuevaPartida.crearPartida();
                     nuevoUsuario = crearUsuario();
-                    System.out.println("Bienvenido" + nuevoUsuario.getNombre() + "aqui comienza tu aventura, la tía Paqui estaría orgullosa");
+                    System.out.println("Bienvenido " + nuevoUsuario.getNombre() + " aqui comienza tu aventura, la tía Paqui estaría orgullosa");
                     break;
                 case 2:
                     System.out.println("Selecciona tu partida guardada");
@@ -46,9 +46,9 @@ public class Ejecutable {
 
         sc.close();  // Cerrar el Scanner
     }
-    public void labrar(Plantas plantas, Usuario usuario){
+    public void trabajar(Terreno terreno, Usuario usuario){
         Scanner sc = new Scanner(System.in);
-        if(!plantas.isLabrado()){
+        if(!terreno.isTrabajado()){
             System.out.println("¿Quieres labrar la tierra? Si/No");
             String a = sc.nextLine();
             if(a.equalsIgnoreCase("si")){

@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="en el ejecutable creacion de metodo labrar y mejora de menu y creacion de usuario" />
+    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/MateriaPrima.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Granja.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Huerta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Plantas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Terreno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Usuario.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
