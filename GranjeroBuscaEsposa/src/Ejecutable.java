@@ -13,6 +13,7 @@ public class Ejecutable {
     public static void main(String[] args) {
         Vehiculo v1 = new Vehiculo("Tractor","Labrar",1000,1);
         Vehiculo v0 = new Vehiculo(null,null,0,0);
+        Usuario nuevoUsuario = null;
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -30,6 +31,8 @@ public class Ejecutable {
                 case 1:
                     System.out.println("Selecciona un nombre para crear tu partida");
                     NuevaPartida.crearPartida();
+                    nuevoUsuario = crearUsuario();
+                    System.out.println("Bienvenido" + nuevoUsuario.getNombre() + "aqui comienza tu aventura, la tía Paqui estaría orgullosa");
                     break;
                 case 2:
                     System.out.println("Selecciona tu partida guardada");
@@ -43,23 +46,25 @@ public class Ejecutable {
 
         sc.close();  // Cerrar el Scanner
     }
-    public void labrar(Plantas plantas){
+    public void labrar(Plantas plantas, Usuario usuario){
         Scanner sc = new Scanner(System.in);
-        if(plantas.isLabrado() == FALSE){
+        if(!plantas.isLabrado()){
             System.out.println("¿Quieres labrar la tierra? Si/No");
             String a = sc.nextLine();
             if(a.equalsIgnoreCase("si")){
-
+                usuario.setResistencia(usuario.getResistencia() - 20);
+                usuario.setExperiencia(usuario.getExperiencia() + 20);
+                System.out.println("Tu resistencia después de labrar todo es de:" + usuario.getResistencia());
+                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
             }
         }
     }
-    public void crearUsuario(){
+    public static Usuario crearUsuario(){
         Scanner sc = new Scanner(System.in);
-        Vehiculo v0 = new Vehiculo(null,null,0,0);
-
         System.out.println("Nombre de usuario");
         String a = sc.nextLine();
-        Usuario u1 = new Usuario(a,v0);
+
+        return new Usuario(a,null);
     }
 
 }
