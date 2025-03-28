@@ -1,57 +1,61 @@
 package Terrenos;
 
 public class MateriaPrima {
-        private String tipo;
-        private Integer recurso;
-        private boolean alimentado;
-        private Integer precio;
+    private String tipo;
+    private Integer recurso;
+    private boolean alimentado;
+    private Integer precio;
 
-        public MateriaPrima(String tipo, Integer recurso, boolean alimentado, Integer precio) {
-                this.tipo = tipo;
-                this.recurso = recurso;
-                this.alimentado = alimentado;
-                this.precio = precio;
-        }
+    public MateriaPrima(String tipo, Integer recurso, boolean alimentado, Integer precio) {
+        this.tipo = tipo;
+        this.recurso = recurso;
+        this.alimentado = alimentado;
+        this.precio = precio;
+    }
 
-        public String getTipo() {
-                return tipo;
-        }
+    public String toCSV() {
+        return this.tipo + "," + this.recurso + "," + this.alimentado + "," + this.precio;
+    }
 
-        public void setTipo(String tipo) {
-                this.tipo = tipo;
-        }
+    public String getTipo() {
+        return tipo;
+    }
 
-        public Integer getRecurso() {
-                return recurso;
-        }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-        public void setRecurso(Integer recurso) {
-                this.recurso = recurso;
-        }
+    public Integer getRecurso() {
+        return recurso;
+    }
 
-        public boolean isAlimentado() {
-                return alimentado;
-        }
+    public void setRecurso(Integer recurso) {
+        this.recurso = recurso;
+    }
 
-        public void setAlimentado(boolean alimentado) {
-                this.alimentado = alimentado;
-        }
+    public boolean isAlimentado() {
+        return alimentado;
+    }
 
-        public Integer getPrecio() {
-                return precio;
-        }
+    public void setAlimentado(boolean alimentado) {
+        this.alimentado = alimentado;
+    }
 
-        public void setPrecio(Integer precio) {
-                this.precio = precio;
-        }
+    public Integer getPrecio() {
+        return precio;
+    }
 
-        @Override
-        public String toString() {
-                return "MateriaPrima{" +
-                        "tipo='" + tipo + '\'' +
-                        ", recurso=" + recurso +
-                        ", alimentado=" + alimentado +
-                        ", precio=" + precio +
-                        '}';
-        }
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "MateriaPrima{" +
+                "tipo='" + tipo + '\'' +
+                ", recurso=" + recurso +
+                ", alimentado=" + alimentado +
+                ", precio=" + precio +
+                '}';
+    }
 }

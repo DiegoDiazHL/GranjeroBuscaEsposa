@@ -11,8 +11,8 @@ import static java.lang.Boolean.FALSE;
 public class Ejecutable {
     // Primer Menú Inicial
     public static void main(String[] args) {
-        Vehiculo v1 = new Vehiculo("Tractor","Labrar",1000,1);
-        Vehiculo v0 = new Vehiculo(null,null,0,0);
+        Vehiculo v1 = new Vehiculo("Tractor", "Labrar", 1000, 1);
+        Vehiculo v0 = new Vehiculo(null, null, 0, 0);
         Usuario nuevoUsuario = null;
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -25,7 +25,7 @@ public class Ejecutable {
             System.out.println("3. Salir");
 
             opcion = Integer.parseInt(sc.nextLine());
-           sc.nextLine();
+            // sc.nextLine();
             // Evaluar opción con switch
             switch (opcion) {
                 case 1:
@@ -46,25 +46,45 @@ public class Ejecutable {
 
         sc.close();  // Cerrar el Scanner
     }
-    public void trabajar(Terreno terreno, Usuario usuario){
+
+    public void trabajar(Terreno terreno, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
-        if(!terreno.isTrabajado()){
-            System.out.println("¿Quieres labrar la tierra? Si/No");
-            String a = sc.nextLine();
-            if(a.equalsIgnoreCase("si")){
-                usuario.setResistencia(usuario.getResistencia() - 20);
-                usuario.setExperiencia(usuario.getExperiencia() + 20);
-                System.out.println("Tu resistencia después de labrar todo es de:" + usuario.getResistencia());
-                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+        System.out.println("¿Qué tipo de terreno quieres trabajar?");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("huerta")) {
+            if (!terreno.isTrabajado()) {
+                System.out.println("¿Quieres labrar la tierra? Si/No");
+                String b = sc.nextLine();
+                if (b.equalsIgnoreCase("si")) {
+                    usuario.setResistencia(usuario.getResistencia() - 20);
+                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                    System.out.println("Tu resistencia después de labrar todo es de:" + usuario.getResistencia());
+                    System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                }
             }
         }
+        if (a.equalsIgnoreCase("granja")) {
+            if (!terreno.isTrabajado()) {
+                System.out.println("¿Quieres limpiar la granja?");
+                String b = sc.nextLine();
+                if (b.equalsIgnoreCase("si")) {
+                    usuario.setResistencia(usuario.getResistencia() - 20);
+                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                    System.out.println("Tu resistencia después de limpiar todo es de:" + usuario.getResistencia());
+                    System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                }
+            }
+        } else {
+            System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
+        }
     }
-    public static Usuario crearUsuario(){
+
+    public static Usuario crearUsuario() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nombre de usuario");
         String a = sc.nextLine();
 
-        return new Usuario(a,null);
+        return new Usuario(a, null);
     }
 
 }

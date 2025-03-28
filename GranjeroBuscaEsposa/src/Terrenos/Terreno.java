@@ -54,9 +54,11 @@ public class Terreno {
     public void setTrabajado(boolean trabajado) {
         this.trabajado = trabajado;
     }
-    public String toCSV(){
-        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado ;
+
+    public String toCSV() {
+        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado;
     }
+
     @Override
     public String toString() {
         return "Terreno{" +
