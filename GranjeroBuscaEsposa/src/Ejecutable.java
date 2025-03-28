@@ -107,7 +107,6 @@ public class Ejecutable {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nombre de usuario");
         String a = sc.nextLine();
-
         return new Usuario(a, null);
     }
 
@@ -119,11 +118,15 @@ public class Ejecutable {
             System.out.println("¿Que quieres vender ");
             String b = sc.nextLine();
             for (MateriaPrima pe : p) {
-                if (pe.getTipo().equalsIgnoreCase(b)) {
-                    int precioVenta = (int) (pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio());
-                    usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
-                    System.out.println("Has vendido " + pe.getRecurso() + " de " + b + " por " + precioVenta + " monedas.");
-
+                if (pe.isAlimentado() && pe.getRecurso() != 0) {
+                    if (pe.getTipo().equalsIgnoreCase(b)) {
+                        int precioVenta = (int) (pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio());
+                        usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
+                        pe.setAlimentado(FALSE);
+                        pe.setRecurso(0);
+                        System.out.println("Has vendido " + pe.getRecurso() + " de " + b + " por " + precioVenta + " monedas.");
+                        break;
+                    }
                 }
             }
         }
@@ -141,27 +144,14 @@ public class Ejecutable {
                     System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
                     int c = Integer.parseInt(sc.nextLine());
                     if (v.getPrecio() <= usuario.getMonedero()) {
-                        if (c == 1) {
+                        if (v.getCategoria() == c) {
                             usuario.setVehiculo(v);
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                            break;
                         }
-                        if (c == 2) {
-                            usuario.setVehiculo(v);
-                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
-                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-
-                        }
-                        if (c == 3) {
-                            usuario.setVehiculo(v);
-                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
-                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-                        }
-
-                    }else{
+                    } else {
                         System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                     }
                 }
@@ -169,32 +159,19 @@ public class Ejecutable {
                     System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
                     int c = Integer.parseInt(sc.nextLine());
                     if (v.getPrecio() <= usuario.getMonedero()) {
-                        if (c == 1) {
+                        if (v.getCategoria() == c) {
                             usuario.setVehiculo(v);
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                            break;
                         }
-                        if (c == 2) {
-                            usuario.setVehiculo(v);
-                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
-                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-
-                        }
-                        if (c == 3) {
-                            usuario.setVehiculo(v);
-                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
-                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-                        }
-
-                    }else{
+                    } else {
                         System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                     }
                 }
             }
-        }else{
+        } else {
             System.out.println("Saliendo de la tienda ...");
         }
 
