@@ -25,7 +25,7 @@ public class Ejecutable {
             System.out.println("3. Salir");
 
             opcion = Integer.parseInt(sc.nextLine());
-//            sc.nextLine();
+           sc.nextLine();
             // Evaluar opción con switch
             switch (opcion) {
                 case 1:

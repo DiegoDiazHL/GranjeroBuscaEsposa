@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="Menú funcional ya crea y carga partida sin reventar" />
+    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="Menú funcional ya crea y carga partida sin reventar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Terrenos/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Terrenos/Plantas.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
