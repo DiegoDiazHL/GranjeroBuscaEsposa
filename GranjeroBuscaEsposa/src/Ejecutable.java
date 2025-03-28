@@ -4,15 +4,39 @@ import Terrenos.*;
 import Usuario_Vehiculo.Usuario;
 import Usuario_Vehiculo.Vehiculo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class Ejecutable {
     // Primer Menú Inicial
     public static void main(String[] args) {
+        ArrayList<MateriaPrima> p = new ArrayList<>();
+        ArrayList<Vehiculo> ve = new ArrayList<>();
         Vehiculo v1 = new Vehiculo("Tractor", "Labrar", 1000, 1);
+        Vehiculo v2 = new Vehiculo("Tractor", "Labrar", 2000, 2);
+        Vehiculo v3 = new Vehiculo("Tractor", "Labrar", 3000, 3);
+        Vehiculo v4 = new Vehiculo("Limpiadora", "Limpiar", 1000, 1);
+        Vehiculo v5 = new Vehiculo("Limpiadora", "Limpiar", 2000, 2);
+        Vehiculo v6 = new Vehiculo("Limpiadora", "Limpiar", 3000, 3);
         Vehiculo v0 = new Vehiculo(null, null, 0, 0);
+        ve.add(v0);
+        ve.add(v1);
+        ve.add(v2);
+        ve.add(v3);
+        ve.add(v4);
+        ve.add(v5);
+        ve.add(v6);
+        MateriaPrima mp1 = new MateriaPrima("Vaca", 2, TRUE, 5);
+        MateriaPrima mp2 = new MateriaPrima("Gallina", 2, TRUE, 3);
+        MateriaPrima mp3 = new MateriaPrima("Patatas", 3, TRUE, 2);
+        MateriaPrima mp4 = new MateriaPrima("Tomate", 4, TRUE, 6);
+        p.add(mp3);
+        p.add(mp4);
+        p.add(mp1);
+        p.add(mp2);
         Usuario nuevoUsuario = null;
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -87,4 +111,94 @@ public class Ejecutable {
         return new Usuario(a, null);
     }
 
+    public void vender(Usuario usuario, ArrayList<MateriaPrima> p) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Quieres vender?");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("si")) {
+            System.out.println("¿Que quieres vender ");
+            String b = sc.nextLine();
+            for (MateriaPrima pe : p) {
+                if (pe.getTipo().equalsIgnoreCase(b)) {
+                    int precioVenta = (int) (pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio());
+                    usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
+                    System.out.println("Has vendido " + pe.getRecurso() + " de " + b + " por " + precioVenta + " monedas.");
+
+                }
+            }
+        }
+    }
+
+    public void comprarVehiculo(Usuario usuario, ArrayList<Vehiculo> ve) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Quieres comprar un vehiculo?");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("si")) {
+            System.out.println("¿Qué función quieres que tenga, limpiar o labrar?");
+            String b = sc.nextLine();
+            for (Vehiculo v : ve) {
+                if ((b.equalsIgnoreCase("limpiar"))) {
+                    System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
+                    int c = Integer.parseInt(sc.nextLine());
+                    if (v.getPrecio() <= usuario.getMonedero()) {
+                        if (c == 1) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                        }
+                        if (c == 2) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+
+                        }
+                        if (c == 3) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                        }
+
+                    }else{
+                        System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                    }
+                }
+                if (b.equalsIgnoreCase("labrar")) {
+                    System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
+                    int c = Integer.parseInt(sc.nextLine());
+                    if (v.getPrecio() <= usuario.getMonedero()) {
+                        if (c == 1) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                        }
+                        if (c == 2) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+
+                        }
+                        if (c == 3) {
+                            usuario.setVehiculo(v);
+                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                        }
+
+                    }else{
+                        System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                    }
+                }
+            }
+        }else{
+            System.out.println("Saliendo de la tienda ...");
+        }
+
+    }
 }
+
+
