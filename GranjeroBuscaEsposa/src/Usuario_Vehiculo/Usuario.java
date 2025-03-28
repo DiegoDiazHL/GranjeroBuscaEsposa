@@ -85,7 +85,7 @@ public class Usuario {
     }
 
     public void dormir() {
-        this.resistencia = getResistenciaMaxima(); // Restablece la resistencia al máximo actual
+        this.resistencia = this.getResistenciaMaxima(); // Restablece la resistencia al máximo actual
     }
 
     public int getResistenciaMaxima() {
