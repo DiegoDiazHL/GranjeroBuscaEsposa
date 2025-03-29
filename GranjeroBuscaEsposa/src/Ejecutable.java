@@ -29,10 +29,10 @@ public class Ejecutable {
         ve.add(v4);
         ve.add(v5);
         ve.add(v6);
-        MateriaPrima mp1 = new MateriaPrima("Vaca", 2, TRUE, 5);
-        MateriaPrima mp2 = new MateriaPrima("Gallina", 2, TRUE, 3);
+        MateriaPrima mp1 = new MateriaPrima("Vacas", 2, TRUE, 5);
+        MateriaPrima mp2 = new MateriaPrima("Gallinas", 2, TRUE, 3);
         MateriaPrima mp3 = new MateriaPrima("Patatas", 3, TRUE, 2);
-        MateriaPrima mp4 = new MateriaPrima("Tomate", 4, TRUE, 6);
+        MateriaPrima mp4 = new MateriaPrima("Tomates", 4, TRUE, 6);
         p.add(mp3);
         p.add(mp4);
         p.add(mp1);
@@ -73,7 +73,7 @@ public class Ejecutable {
 
     public void trabajar(Terreno terreno, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿Qué tipo de terreno quieres trabajar?");
+        System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("huerta")) {
             if (!terreno.isTrabajado()) {
