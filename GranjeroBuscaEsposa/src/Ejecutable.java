@@ -15,6 +15,8 @@ public class Ejecutable {
     public static void main(String[] args) {
         ArrayList<MateriaPrima> p = new ArrayList<>();
         ArrayList<Vehiculo> ve = new ArrayList<>();
+        ArrayList<Terreno> ter = new ArrayList<>();
+        Terreno t = new Terreno("granja", 2, 10, 1000, FALSE);
         Vehiculo v1 = new Vehiculo("Tractor", "Labrar", 1000, 1);
         Vehiculo v2 = new Vehiculo("Tractor", "Labrar", 2000, 2);
         Vehiculo v3 = new Vehiculo("Tractor", "Labrar", 3000, 3);
@@ -41,6 +43,7 @@ public class Ejecutable {
         Scanner sc = new Scanner(System.in);
         int opcion;
 
+
         do {
             // Mostrar el menú
             System.out.println("\n=== MENÚ PRINCIPAL ===");
@@ -57,7 +60,31 @@ public class Ejecutable {
                     NuevaPartida.crearPartida();
                     nuevoUsuario = crearUsuario();
                     System.out.println("Bienvenido " + nuevoUsuario.getNombre() + " aqui comienza tu aventura, la tía Paqui estaría orgullosa");
-                    break;
+                    int option = 0;
+                    while (option != 5) {
+                        System.out.println("1. Trabajar terreno");
+                        System.out.println("2. Vender recursos");
+                        System.out.println("3. Comprar vehiculo");
+                        System.out.println("4. Usar vehiculo");
+                        System.out.println("5. Salir");
+                        option = Integer.parseInt(sc.nextLine());
+                        switch (option) {
+                            case 1:
+                                trabajar(t, nuevoUsuario);
+                                break;
+                            case 2:
+                                vender(nuevoUsuario, p);
+                                break;
+                            case 3:
+                                comprarVehiculo(nuevoUsuario, ve);
+                                break;
+                            case 4:
+                                usarVehiculo(nuevoUsuario, t);
+                                break;
+                            case 5:
+                                break;
+                        }
+                    }
                 case 2:
                     System.out.println("Selecciona tu partida guardada");
                     CargarPartida.cargarPartida();
@@ -71,7 +98,7 @@ public class Ejecutable {
         sc.close();  // Cerrar el Scanner
     }
 
-    public void trabajar(Terreno terreno, Usuario usuario) {
+    public static void trabajar(Terreno terreno, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
         String a = sc.nextLine();
@@ -103,12 +130,12 @@ public class Ejecutable {
         return new Usuario(a, null);
     }
 
-    public void vender(Usuario usuario, ArrayList<MateriaPrima> p) {
+    public static void vender(Usuario usuario, ArrayList<MateriaPrima> p) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿Quieres vender?");
+        System.out.println("¿Quieres vender? Si/No");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("si")) {
-            System.out.println("¿Que quieres vender ");
+            System.out.println("¿Que quieres vender?Vacas,Gallinas,Patatas,Tomates ");
             String b = sc.nextLine();
             for (MateriaPrima pe : p) {
                 if (pe.isAlimentado() && pe.getRecurso() != 0) {
@@ -117,7 +144,7 @@ public class Ejecutable {
                         usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
                         pe.setAlimentado(FALSE);
                         pe.setRecurso(0);
-                        System.out.println("Has vendido " + pe.getRecurso() + " de " + b + " por " + precioVenta + " monedas.");
+                        System.out.println("Has vendido " + b + " por " + precioVenta + " monedas.");
                         break;
                     }
                 }
@@ -125,9 +152,9 @@ public class Ejecutable {
         }
     }
 
-    public void comprarVehiculo(Usuario usuario, ArrayList<Vehiculo> ve) {
+    public static void comprarVehiculo(Usuario usuario, ArrayList<Vehiculo> ve) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿Quieres comprar un vehiculo?");
+        System.out.println("¿Quieres comprar un vehiculo?Si/No");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("si")) {
             System.out.println("¿Qué función quieres que tenga, limpiar o labrar?");
@@ -145,6 +172,7 @@ public class Ejecutable {
                             break;
                         } else {
                             System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                            break;
                         }
                     }
                 }
@@ -160,6 +188,7 @@ public class Ejecutable {
                             break;
                         } else {
                             System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                            break;
                         }
                     }
                 }
@@ -169,7 +198,7 @@ public class Ejecutable {
         }
     }
 
-    public void usarVehiculo(Usuario usuario, Terreno terreno) {
+    public static void usarVehiculo(Usuario usuario, Terreno terreno) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Quieres usar tu vehiculo?");
         String a = sc.nextLine();
