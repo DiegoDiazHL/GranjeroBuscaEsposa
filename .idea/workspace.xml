@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="metodo usarvehiculo" />
+    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743414489440</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="menu">
+      <option name="closed" value="true" />
+      <created>1743420029046</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743420029046</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,6 +192,7 @@
     <MESSAGE value="cambios en metodo vender y comprar vehiculo (muy optimizados)" />
     <MESSAGE value="cambio en metodo trabajar, en principio optimizado." />
     <MESSAGE value="metodo usarvehiculo" />
-    <option name="LAST_COMMIT_MESSAGE" value="metodo usarvehiculo" />
+    <MESSAGE value="menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu" />
   </component>
 </project>
