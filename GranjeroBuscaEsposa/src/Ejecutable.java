@@ -71,39 +71,28 @@ public class Ejecutable {
         sc.close();  // Cerrar el Scanner
     }
 
-    public void trabajar(ArrayList<MateriaPrima> p, Usuario usuario) {
+    public void trabajar(Terreno terreno, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
         String a = sc.nextLine();
-        for (MateriaPrima m : p) {
-            if (m.getTipo().equalsIgnoreCase("huerta")) {
-                if (!m.isAlimentado()) {
-                    System.out.println("¿Quieres labrar la tierra? Si/No");
-                    String b = sc.nextLine();
-                    if (b.equalsIgnoreCase("si")) {
-                        m.setAlimentado(TRUE);
-                        usuario.setResistencia(usuario.getResistencia() - 20);
-                        usuario.setExperiencia(usuario.getExperiencia() + 20);
-                        System.out.println("Tu resistencia después de labrar todo es de:" + usuario.getResistencia());
-                        System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                    }
-                }
-            }
-            if (m.getTipo().equalsIgnoreCase("granja")) {
-                if (!m.isAlimentado()) {
-                    System.out.println("¿Quieres limpiar la granja?");
-                    String b = sc.nextLine();
-                    if (b.equalsIgnoreCase("si")) {
-                        m.setAlimentado(TRUE);
-                        usuario.setResistencia(usuario.getResistencia() - 20);
-                        usuario.setExperiencia(usuario.getExperiencia() + 20);
-                        System.out.println("Tu resistencia después de limpiar todo es de:" + usuario.getResistencia());
-                        System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                    }
+        if (terreno.getTipo().equals(a)) {
+            if (!terreno.isTrabajado()) {
+                System.out.println("¿Quieres trabajar? Si/No");
+                String b = sc.nextLine();
+                if (b.equalsIgnoreCase("si")) {
+                    terreno.setTrabajado(TRUE);
+                    usuario.setResistencia(usuario.getResistencia() - 50);
+                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                    System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                    System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                } else {
+                    System.out.println("Saliendo . . .");
                 }
             } else {
-                System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
+                System.out.println("El terreno ya está trabajado");
             }
+        } else {
+            System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
         }
     }
 
@@ -147,39 +136,93 @@ public class Ejecutable {
                 if ((b.equalsIgnoreCase("limpiar"))) {
                     System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
                     int c = Integer.parseInt(sc.nextLine());
-                    if (v.getPrecio() <= usuario.getMonedero()) {
-                        if (v.getCategoria() == c) {
+                    if (v.getCategoria() == c) {
+                        if (v.getPrecio() <= usuario.getMonedero()) {
                             usuario.setVehiculo(v);
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
                             break;
+                        } else {
+                            System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                         }
-                    } else {
-                        System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                     }
                 }
                 if (b.equalsIgnoreCase("labrar")) {
                     System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
                     int c = Integer.parseInt(sc.nextLine());
-                    if (v.getPrecio() <= usuario.getMonedero()) {
-                        if (v.getCategoria() == c) {
+                    if (v.getCategoria() == c) {
+                        if (v.getPrecio() <= usuario.getMonedero()) {
                             usuario.setVehiculo(v);
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
                             break;
+                        } else {
+                            System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                         }
-                    } else {
-                        System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
                     }
                 }
             }
         } else {
             System.out.println("Saliendo de la tienda ...");
         }
+    }
 
+    public void usarVehiculo(Usuario usuario, Terreno terreno) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Quieres usar tu vehiculo?");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("si")) {
+            if (!terreno.isTrabajado()) {
+                if (usuario.getVehiculo().getCategoria() == 1) {
+                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                        if (usuario.getResistencia() < 30) {
+                            terreno.setTrabajado(TRUE);
+                            usuario.setResistencia(usuario.getResistencia() - 30);
+                            usuario.setExperiencia(usuario.getExperiencia() + 20);
+                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                        } else {
+                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                        }
+                    }
+                } else if (usuario.getVehiculo().getCategoria() == 2) {
+                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                        if (usuario.getResistencia() < 15) {
+                            terreno.setTrabajado(TRUE);
+                            usuario.setResistencia(usuario.getResistencia() - 15);
+                            usuario.setExperiencia(usuario.getExperiencia() + 20);
+                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                        } else {
+                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                        }
+                    }
+                }
+                if (usuario.getVehiculo().getCategoria() == 3) {
+                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                        if (usuario.getResistencia() < 15) {
+                            terreno.setTrabajado(TRUE);
+                            usuario.setExperiencia(usuario.getExperiencia() + 20);
+                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                        } else {
+                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                        }
+                    }
+                } else {
+                    System.out.println("No cuentas con ningún vehiculo en propiedad " + usuario.getVehiculo());
+                }
+            } else {
+                System.out.println("El terreno ya está trabajado");
+            }
+        } else {
+            System.out.println("Saliendo ...");
+        }
     }
 }
+
+
 
 
