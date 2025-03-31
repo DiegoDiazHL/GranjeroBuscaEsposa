@@ -23,8 +23,6 @@ public class Ejecutable {
         Vehiculo v4 = new Vehiculo("Limpiadora", "Limpiar", 1000, 1);
         Vehiculo v5 = new Vehiculo("Limpiadora", "Limpiar", 2000, 2);
         Vehiculo v6 = new Vehiculo("Limpiadora", "Limpiar", 3000, 3);
-        Vehiculo v0 = new Vehiculo(null, null, 0, 0);
-        ve.add(v0);
         ve.add(v1);
         ve.add(v2);
         ve.add(v3);
@@ -200,51 +198,55 @@ public class Ejecutable {
 
     public static void usarVehiculo(Usuario usuario, Terreno terreno) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿Quieres usar tu vehiculo?");
+        System.out.println("¿Quieres usar tu vehiculo?Si/No");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("si")) {
-            if (!terreno.isTrabajado()) {
-                if (usuario.getVehiculo().getCategoria() == 1) {
-                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
-                        if (usuario.getResistencia() < 30) {
-                            terreno.setTrabajado(TRUE);
-                            usuario.setResistencia(usuario.getResistencia() - 30);
-                            usuario.setExperiencia(usuario.getExperiencia() + 20);
-                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
-                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                        } else {
-                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+            if (usuario.getVehiculo() != null) {
+                if (!terreno.isTrabajado()) {
+                    if (usuario.getVehiculo().getCategoria() == 1) {
+                        if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                            if (usuario.getResistencia() <= 30) {
+                                terreno.setTrabajado(true);
+                                usuario.setResistencia(usuario.getResistencia() - 30);
+                                usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                            } else {
+                                System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                            }
+                        }
+                    } else if (usuario.getVehiculo().getCategoria() == 2) {
+                        if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                            if (usuario.getResistencia() <= 15) {
+                                terreno.setTrabajado(true);
+                                usuario.setResistencia(usuario.getResistencia() - 15);
+                                usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                            } else {
+                                System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                            }
                         }
                     }
-                } else if (usuario.getVehiculo().getCategoria() == 2) {
-                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
-                        if (usuario.getResistencia() < 15) {
-                            terreno.setTrabajado(TRUE);
-                            usuario.setResistencia(usuario.getResistencia() - 15);
-                            usuario.setExperiencia(usuario.getExperiencia() + 20);
-                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
-                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                        } else {
-                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                    if (usuario.getVehiculo().getCategoria() == 3) {
+                        if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
+                            if (usuario.getResistencia() < 15) {
+                                terreno.setTrabajado(true);
+                                usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                            } else {
+                                System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                            }
                         }
-                    }
-                }
-                if (usuario.getVehiculo().getCategoria() == 3) {
-                    if (terreno.getTipo().equals(usuario.getVehiculo().getFuncion())) {
-                        if (usuario.getResistencia() < 15) {
-                            terreno.setTrabajado(TRUE);
-                            usuario.setExperiencia(usuario.getExperiencia() + 20);
-                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
-                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                        } else {
-                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
-                        }
+                    } else {
+                        System.out.println("No cuentas con ningún vehiculo en propiedad " + usuario.getVehiculo());
                     }
                 } else {
-                    System.out.println("No cuentas con ningún vehiculo en propiedad " + usuario.getVehiculo());
+                    System.out.println("El terreno ya está trabajado");
                 }
             } else {
-                System.out.println("El terreno ya está trabajado");
+                System.out.println("No tienes vehiculo en posesion");
             }
         } else {
             System.out.println("Saliendo ...");
