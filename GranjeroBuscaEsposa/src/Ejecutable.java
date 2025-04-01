@@ -157,36 +157,37 @@ public class Ejecutable {
         if (a.equalsIgnoreCase("si")) {
             System.out.println("¿Qué función quieres que tenga, limpiar o labrar?");
             String b = sc.nextLine();
-            for (Vehiculo v : ve) {
-                if ((b.equalsIgnoreCase("limpiar"))) {
-                    System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
-                    int c = Integer.parseInt(sc.nextLine());
+            if ((b.equalsIgnoreCase("limpiar"))) {
+                System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
+                int c = Integer.parseInt(sc.nextLine());
+                for (Vehiculo v : ve) {
                     if (v.getCategoria() == c) {
-                        if (v.getPrecio() <= usuario.getMonedero()) {
-                            usuario.setVehiculo(v);
-                            usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
-                            System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                            System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-                            break;
-                        } else {
-                            System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
-                            break;
+                        if (v.getFuncion().equalsIgnoreCase(b)) {
+                            if (v.getPrecio() <= usuario.getMonedero()) {
+                                usuario.setVehiculo(v);
+                                usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
+                                System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
+                                System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                                break;
+                            } else {
+                                System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                                break;
+                            }
                         }
                     }
                 }
-                if (b.equalsIgnoreCase("labrar")) {
-                    System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
-                    int c = Integer.parseInt(sc.nextLine());
+            } else if (b.equalsIgnoreCase("labrar")) {
+                System.out.println("Elige nivel de categoria que quieras comprar entre estas opciones: (1,2,3)");
+                int c = Integer.parseInt(sc.nextLine());
+                for (Vehiculo v : ve) {
                     if (v.getCategoria() == c) {
                         if (v.getPrecio() <= usuario.getMonedero()) {
                             usuario.setVehiculo(v);
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
-                            break;
                         } else {
                             System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
-                            break;
                         }
                     }
                 }
@@ -195,6 +196,7 @@ public class Ejecutable {
             System.out.println("Saliendo de la tienda ...");
         }
     }
+
 
     public static void usarVehiculo(Usuario usuario, Terreno terreno) {
         Scanner sc = new Scanner(System.in);
@@ -253,6 +255,8 @@ public class Ejecutable {
         }
     }
 }
+
+
 
 
 
