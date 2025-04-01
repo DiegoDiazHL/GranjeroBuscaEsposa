@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="casino">
-      <change afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/GranjeroBuscaEsposa/Toolbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
-    </list>
+    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="casino" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +123,7 @@
       <updated>1742560644929</updated>
       <workItem from="1743517893218" duration="1064000" />
       <workItem from="1743518968826" duration="1140000" />
-      <workItem from="1743520119108" duration="672000" />
+      <workItem from="1743520119108" duration="1047000" />
     </task>
     <task id="LOCAL-00001" summary="Menú funcional ya crea y carga partida sin reventar">
       <option name="closed" value="true" />
