@@ -82,6 +82,7 @@ public class Ejecutable {
                                 Toolbox.tirarRuleta(nuevoUsuario);
                                 break;
                             case 6:
+                                sc.close();
                                 break;
                         }
                     }
