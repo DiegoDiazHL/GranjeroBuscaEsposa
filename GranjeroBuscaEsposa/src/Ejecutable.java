@@ -5,6 +5,7 @@ import Usuario_Vehiculo.Usuario;
 import Usuario_Vehiculo.Vehiculo;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.Boolean.FALSE;
@@ -59,12 +60,13 @@ public class Ejecutable {
                     nuevoUsuario = crearUsuario();
                     System.out.println("Bienvenido " + nuevoUsuario.getNombre() + " aqui comienza tu aventura, la tía Paqui estaría orgullosa");
                     int option = 0;
-                    while (option != 5) {
+                    while (option != 6) {
                         System.out.println("1. Trabajar terreno");
                         System.out.println("2. Vender recursos");
                         System.out.println("3. Comprar vehiculo");
                         System.out.println("4. Usar vehiculo");
-                        System.out.println("5. Salir");
+                        System.out.println("5. Tirar ruleta");
+                        System.out.println("6. Salir");
                         option = Integer.parseInt(sc.nextLine());
                         switch (option) {
                             case 1:
@@ -80,6 +82,9 @@ public class Ejecutable {
                                 usarVehiculo(nuevoUsuario, t);
                                 break;
                             case 5:
+                                tirarRuleta(nuevoUsuario);
+                                break;
+                            case 6:
                                 break;
                         }
                     }
@@ -91,9 +96,9 @@ public class Ejecutable {
                     System.out.println("Saliendo del programa");
                     break;
             }
-        } while (opcion != 3);  // Se repite hasta que el usuario elija salir
+        } while (opcion != 3);
 
-        sc.close();  // Cerrar el Scanner
+        sc.close();
     }
 
     public static void trabajar(Terreno terreno, Usuario usuario) {
@@ -167,7 +172,7 @@ public class Ejecutable {
                                 usuario.setVehiculo(v);
                                 usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                                 System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
-                                System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                                System.out.println("Te quedan " + usuario.getMonedero() + " monedas.");
                                 break;
                             } else {
                                 System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
@@ -254,7 +259,30 @@ public class Ejecutable {
             System.out.println("Saliendo ...");
         }
     }
+
+    public static void tirarRuleta(Usuario usuario) {
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("Bienvenido al Casino!!!");
+        System.out.println("¿Cuántas monedas quieres apostar?");
+
+        int a = Integer.parseInt(sc.nextLine());
+
+        if (a <= usuario.getMonedero()) {
+            int premio = a * (generateRandomNumber(0, 2, random));
+            usuario.setMonedero(usuario.getMonedero() + premio);
+            System.out.println("Ganaste " + premio + " monedas!");
+        } else {
+            System.out.println("No tienes suficientes monedas.");
+        }
+    }
+
+    public static int generateRandomNumber(int min, int max, Random random) {
+        return random.nextInt((max - min) + 1) + min;
+    }
 }
+
 
 
 
