@@ -11,29 +11,26 @@ import static java.lang.Boolean.TRUE;
 
 public class Toolbox {
 
-    public static void trabajar(Terreno terreno, Usuario usuario) {
+    public static void trabajar(ArrayList<Terreno> ter, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
         String a = sc.nextLine();
-        if (terreno.getTipo().equals(a)) {
-            if (!terreno.isTrabajado()) {
-                System.out.println("¿Quieres trabajar? Si/No");
-                String b = sc.nextLine();
-                if (b.equalsIgnoreCase("si")) {
-                    terreno.setTrabajado(TRUE);
+        for (Terreno t : ter) {
+            if (t.getTipo().equalsIgnoreCase(a)) {
+                if (!t.isTrabajado()) {
+                    t.setTrabajado(true);
                     usuario.setResistencia(usuario.getResistencia() - 50);
                     usuario.setExperiencia(usuario.getExperiencia() + 20);
-                    System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                    System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                 } else {
-                    System.out.println("Saliendo . . .");
+                    System.out.println("El terreno ya ha sido trabajado.");
                 }
             } else {
-                System.out.println("El terreno ya está trabajado");
+                System.out.println("No existe ese tipo de terreno.");
             }
-        } else {
-            System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
         }
+       
     }
 
     public static Usuario crearUsuario() {
@@ -112,8 +109,18 @@ public class Toolbox {
         }
     }
 
-    public static void usarVehiculo(Usuario usuario, Terreno terreno) {
+    public static void usarVehiculo(Usuario usuario, ArrayList<Terreno> ter, ArrayList<Vehiculo> ve) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
+        sc.nextLine();
+        String c = sc.nextLine();
+        Terreno terreno = null;
+        for (Terreno t : ter) {
+            if (t.getTipo().equalsIgnoreCase(c)) {
+                terreno = t;
+                break;
+            }
+        }
         System.out.println("¿Quieres usar tu vehiculo?Si/No");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("si")) {
@@ -189,5 +196,31 @@ public class Toolbox {
 
     public static int generateRandomNumber(int min, int max, Random random) {
         return random.nextInt((max - min) + 1) + min;
+    }
+    public static void mejorarTerreno(Usuario usuario, ArrayList<Terreno> ter) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Quieres mejorar tu terreno? Si/No");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("si")) {
+            System.out.println("¿Qué tipo de terreno quieres mejorar? Huerta o Granja");
+            String b = sc.nextLine();
+            for (Terreno t : ter) {
+                if (t.getTipo().equalsIgnoreCase(b)) {
+                    if (t.getPrecio() <= usuario.getMonedero()) {
+                        t.setCapacidad(t.getCapacidad() + 10);
+                        t.setTamano(t.getTamano() + 5);
+                        usuario.setExperiencia(usuario.getExperiencia() + 20);
+                        System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                        usuario.setMonedero(usuario.getMonedero() - t.getPrecio());
+                        System.out.println("Has mejorado el terreno " + b + " por " + t.getPrecio() + " monedas.");
+                        break;
+                    } else {
+                        System.out.println("No tienes suficiente dinero, tu dinero actual es: " + usuario.getMonedero());
+                    }
+                }
+            }
+        } else {
+            System.out.println("Saliendo de la tienda ...");
+        }
     }
 }
