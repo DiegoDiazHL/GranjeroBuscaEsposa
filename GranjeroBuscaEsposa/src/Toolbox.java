@@ -45,20 +45,22 @@ public class Toolbox {
         System.out.println("¿Quieres vender? Si/No");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("si")) {
-            System.out.println("¿Que quieres vender?Vacas,Gallinas,Patatas,Tomates ");
+            System.out.println("¿Que quieres vender?Vacas,Gallinas,Patatas,Tomates");
             String b = sc.nextLine();
             for (MateriaPrima pe : p) {
                 if (pe.isAlimentado() && pe.getRecurso() != 0) {
                     if (pe.getTipo().equalsIgnoreCase(b)) {
                         int precioVenta = (int) (pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio());
                         usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
-                        pe.setAlimentado(FALSE);
+                        pe.setAlimentado(false);
                         pe.setRecurso(0);
                         System.out.println("Has vendido " + b + " por " + precioVenta + " monedas.");
                         break;
                     }
                 }
             }
+        }else{
+            System.out.println("Saliendo de la tienda");
         }
     }
 
