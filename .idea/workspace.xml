@@ -4,31 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="menu" />
+    <list default="true" id="84877b34-e46c-4ced-add7-32157e90516f" name="Changes" comment="casino">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/partida_rodrigo.csv" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Diego" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2ucvOTcN6H6MT5cpNdYTCzntcSF" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2v8LSmFO0Ox7SppQrimcSJA6bPR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,23 +29,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Ejecutable.executor": "Run",
-    "Application.nuevaPartida.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "<unknown>",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Ejecutable">
+  <component name="RunManager">
     <configuration name="Ejecutable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ejecutable" />
       <module name="GranjeroBuscaEsposa" />
@@ -60,139 +43,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="nuevaPartida" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ficheros.nuevaPartida" />
-      <module name="GranjeroBuscaEsposa" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Ficheros.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Ejecutable" />
-        <item itemvalue="Application.nuevaPartida" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="72b633c6-b455-4e28-bf93-ab85e8dbec9b" name="Changes" comment="" />
-      <created>1742560644929</created>
+      <changelist id="84877b34-e46c-4ced-add7-32157e90516f" name="Changes" comment="casino" />
+      <created>1743521757701</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1742560644929</updated>
+      <updated>1743521757701</updated>
     </task>
-    <task id="LOCAL-00001" summary="Menú funcional ya crea y carga partida sin reventar">
-      <option name="closed" value="true" />
-      <created>1742820160130</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1742820160130</updated>
-    </task>
-    <task id="LOCAL-00002" summary="creacion de clases">
-      <option name="closed" value="true" />
-      <created>1742907483718</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1742907483719</updated>
-    </task>
-    <task id="LOCAL-00003" summary="en el ejecutable creacion de metodo labrar y mejora de menu y creacion de usuario">
-      <option name="closed" value="true" />
-      <created>1743066795202</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1743066795202</updated>
-    </task>
-    <task id="LOCAL-00004" summary="cambio en metodo trabajar">
-      <option name="closed" value="true" />
-      <created>1743147769180</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1743147769180</updated>
-    </task>
-    <task id="LOCAL-00005" summary="añadido metodo vender y comprar vehiculo">
-      <option name="closed" value="true" />
-      <created>1743157391257</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1743157391257</updated>
-    </task>
-    <task id="LOCAL-00006" summary="cambios en metodo vender y comprar vehiculo (muy optimizados)">
-      <option name="closed" value="true" />
-      <created>1743161041360</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743161041360</updated>
-    </task>
-    <task id="LOCAL-00007" summary="cambios en metodo vender y comprar vehiculo (muy optimizados)">
-      <option name="closed" value="true" />
-      <created>1743292268011</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743292268011</updated>
-    </task>
-    <task id="LOCAL-00008" summary="cambio en metodo trabajar, en principio optimizado.">
-      <option name="closed" value="true" />
-      <created>1743412207264</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1743412207264</updated>
-    </task>
-    <task id="LOCAL-00009" summary="metodo usarvehiculo">
-      <option name="closed" value="true" />
-      <created>1743414489440</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1743414489440</updated>
-    </task>
-    <task id="LOCAL-00010" summary="menu">
-      <option name="closed" value="true" />
-      <created>1743420029046</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1743420029046</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Menú funcional ya crea y carga partida sin reventar" />
-    <MESSAGE value="creacion de clases" />
-    <MESSAGE value="en el ejecutable creacion de metodo labrar y mejora de menu y creacion de usuario" />
-    <MESSAGE value="cambio en metodo trabajar" />
-    <MESSAGE value="añadido metodo vender y comprar vehiculo" />
-    <MESSAGE value="cambios en metodo vender y comprar vehiculo (muy optimizados)" />
-    <MESSAGE value="cambio en metodo trabajar, en principio optimizado." />
-    <MESSAGE value="metodo usarvehiculo" />
-    <MESSAGE value="menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu" />
+    <MESSAGE value="casino" />
+    <option name="LAST_COMMIT_MESSAGE" value="casino" />
   </component>
 </project>
