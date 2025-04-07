@@ -13,6 +13,24 @@ public class Usuario {
         this.vehiculo = vehiculo;
     }
 
+    public String toCSV() {
+        String vehiculoNombre = (this.vehiculo != null) ? this.vehiculo.getNombre() : "";
+        String vehiculoFuncion = (this.vehiculo != null) ? this.vehiculo.getFuncion() : "";
+        int vehiculoCategoria = (this.vehiculo != null) ? this.vehiculo.getCategoria() : 0;
+        int vehiculoPrecio = (this.vehiculo != null) ? this.vehiculo.getPrecio() : 0;
+
+        return this.nombre + "," +
+                this.monedero + "," +
+                (this.vehiculo != null ? "true" : "false") + ","
+                + vehiculoNombre + "," +
+                vehiculoFuncion + "," +
+                vehiculoCategoria + "," +
+                vehiculoPrecio + "," +
+                this.experiencia + "," +
+                this.nivel + "," +
+                this.resistencia;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -59,10 +77,6 @@ public class Usuario {
 
     public void setResistencia(int resistencia) {
         this.resistencia = resistencia;
-    }
-
-    public String toCSV(){
-        return this.nombre + "," + this.monedero + "," + this.vehiculo + "," + this.nivel + "," + this.resistencia;
     }
 
 
