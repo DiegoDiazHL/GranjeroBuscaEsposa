@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="84877b34-e46c-4ced-add7-32157e90516f" name="Changes" comment="casino">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/MateriaPrima.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/MateriaPrima.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Toolbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Toolbox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Usuario_Vehiculo/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Toolbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Toolbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Usuario_Vehiculo/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Usuario_Vehiculo/Usuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

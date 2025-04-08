@@ -103,7 +103,11 @@ public class Usuario {
     }
 
     public int getResistenciaMaxima() {
-        return this.nivel * 10; // Cada nivel aumenta el máximo en 10 se puede variar según veamos
+        if (this.nivel > 1) {
+            return this.nivel * 10 + this.resistencia; // Cada nivel aumenta el máximo en 10 se puede variar según veamos
+        }else{
+            return this.resistencia;
+        }
     }
 
     @Override

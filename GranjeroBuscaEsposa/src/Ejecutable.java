@@ -107,10 +107,12 @@ public class Ejecutable {
                     GuardarPartida.guardarPartida(usuario);
                     break;
                 case 7:
+                    Toolbox.dormir(usuario);
+                case 8:
                     System.out.println("Saliendo");
                     break;
             }
-        } while (opcion != 7);
+        } while (opcion != 8);
     }
 
     private static void mostrarMenuJuego() {
@@ -121,6 +123,7 @@ public class Ejecutable {
         System.out.println("4. Usar vehiculo");
         System.out.println("5. Tirar ruleta");
         System.out.println("6. Guardar Partida");
-        System.out.println("7. Salir");
+        System.out.println("7. Dormir");
+        System.out.println("8. Salir");
     }
 }

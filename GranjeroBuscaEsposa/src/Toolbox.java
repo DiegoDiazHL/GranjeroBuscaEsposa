@@ -2,6 +2,7 @@ import Terrenos.MateriaPrima;
 import Terrenos.Terreno;
 import Usuario_Vehiculo.Usuario;
 import Usuario_Vehiculo.Vehiculo;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -193,5 +194,21 @@ public class Toolbox {
 
     public static int generateRandomNumber(int min, int max, Random random) {
         return random.nextInt((max - min) + 1) + min;
+    }
+
+    public static void dormir(Usuario usuario) {
+        Scanner sc = new Scanner(System.in);
+        int contador = 0;
+        System.out.println("¿Quieres dormir? Si/No: ");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("Si")) {
+            contador = +1;
+            usuario.setResistencia(usuario.getResistenciaMaxima());
+            System.out.println("Has descansado con exito tu resistencia se ha reestablecido a " + usuario.getResistencia() + " llevas un total de " + contador + " días.");
+            int cobro = 10 * usuario.getNivel();
+            usuario.setMonedero(usuario.getMonedero() - cobro);
+            System.out.println("Se ha cobrado el alquiler del terreno te han cobrado " + cobro + " ahora tienes " + usuario.getMonedero());
+        }
+
     }
 }
