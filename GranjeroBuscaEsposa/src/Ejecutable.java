@@ -15,7 +15,11 @@ public class Ejecutable {
     public static void main(String[] args) {
         ArrayList<MateriaPrima> p = inicializarMateriaPrima();
         ArrayList<Vehiculo> ve = inicializarVehiculos();
-        Terreno t = new Terreno("granja", 2, 10, 1000, FALSE);
+        ArrayList<Terreno> ter = new ArrayList<>();
+        Terreno t1 = new Terreno("granja", 2, 10, 1000, FALSE);
+        Terreno t2 = new Terreno("huerta", 2, 10, 1000, FALSE);
+        ter.add(t1);
+        ter.add(t2);
         Usuario nuevoUsuario = new Usuario("Invitado", null);
         Scanner sc = new Scanner(System.in);
 
@@ -26,11 +30,11 @@ public class Ejecutable {
             switch (opcion) {
                 case 1:
                     nuevoUsuario = iniciarNuevaPartida(sc);
-                    ejecutarMenuJuego(nuevoUsuario, t, ve, p, sc);
+                    ejecutarMenuJuego(nuevoUsuario, ter, ve, p, sc);
                     break;
                 case 2:
                     cargarPartidaExistente(nuevoUsuario, sc);
-                    ejecutarMenuJuego(nuevoUsuario, t, ve, p, sc);
+                    ejecutarMenuJuego(nuevoUsuario, ter, ve, p, sc);
                     break;
                 case 3:
                     System.out.println("Saliendo del programa");
@@ -82,14 +86,14 @@ public class Ejecutable {
         System.out.println("Bienvenido de nuevo " + usuario.getNombre());
     }
 
-    private static void ejecutarMenuJuego(Usuario usuario, Terreno t, ArrayList<Vehiculo> ve, ArrayList<MateriaPrima> p, Scanner sc) {
+    private static void ejecutarMenuJuego(Usuario usuario, ArrayList<Terreno> ter, ArrayList<Vehiculo> ve, ArrayList<MateriaPrima> p, Scanner sc) {
         int opcion;
         do {
             mostrarMenuJuego();
             opcion = Integer.parseInt(sc.nextLine());
             switch (opcion) {
                 case 1:
-                    Toolbox.trabajar(t, usuario);
+                    Toolbox.trabajar(ter, usuario);
                     break;
                 case 2:
                     Toolbox.vender(usuario, p);
@@ -98,7 +102,7 @@ public class Ejecutable {
                     Toolbox.comprarVehiculo(usuario, ve);
                     break;
                 case 4:
-                    Toolbox.usarVehiculo(usuario, t);
+                    Toolbox.usarVehiculo(usuario, ter);
                     break;
                 case 5:
                     Toolbox.tirarRuleta(usuario);
@@ -108,6 +112,7 @@ public class Ejecutable {
                     break;
                 case 7:
                     Toolbox.dormir(usuario);
+                    break;
                 case 8:
                     System.out.println("Saliendo");
                     break;
