@@ -86,6 +86,7 @@ public class Toolbox {
                                 break;
                             } else {
                                 System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                                System.out.println("El precio del vehiculo es: " + v.getPrecio());
                                 break;
                             }
                         }
@@ -101,8 +102,11 @@ public class Toolbox {
                             usuario.setMonedero(usuario.getMonedero() - v.getPrecio());
                             System.out.println("¡Has comprado un vehículo de categoría " + c + " para " + b + "!");
                             System.out.println("Te queda " + usuario.getMonedero() + " monedas.");
+                            break;
                         } else {
                             System.out.println("No tienes suficiente dinero tu dinero actual es: " + usuario.getMonedero());
+                            System.out.println("El precio del vehiculo es: " + v.getPrecio());
+                            break;
                         }
                     }
                 }
