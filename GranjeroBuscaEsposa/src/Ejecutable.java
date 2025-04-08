@@ -16,8 +16,8 @@ public class Ejecutable {
         ArrayList<MateriaPrima> p = inicializarMateriaPrima();
         ArrayList<Vehiculo> ve = inicializarVehiculos();
         ArrayList<Terreno> ter = new ArrayList<>();
-        Terreno t2 = new Terreno("huerta", 2, 10, 1000, FALSE);
-        Terreno t1 = new Terreno("granja", 2, 10, 1000, FALSE);
+        Terreno t2 = new Terreno("huerta", 2, 10, 1000, FALSE,0);
+        Terreno t1 = new Terreno("granja", 2, 10, 1000, FALSE,0);
         ter.add(t2);
         ter.add(t1);
         Usuario nuevoUsuario = new Usuario("Invitado", null);
@@ -96,7 +96,7 @@ public class Ejecutable {
                     Toolbox.trabajar(ter, usuario);
                     break;
                 case 2:
-                    Toolbox.vender(usuario, p);
+                    Toolbox.vender(usuario, p , ter);
                     break;
                 case 3:
                     Toolbox.comprarVehiculo(usuario, ve);

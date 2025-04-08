@@ -6,13 +6,23 @@ public class Terreno {
     private Integer capacidad;
     private Integer precio;
     private boolean trabajado;
+    private Integer nivel;
 
-    public Terreno(String tipo, Integer tamano, Integer capacidad, Integer precio, boolean trabajado) {
+    public Terreno(String tipo, Integer tamano, Integer capacidad, Integer precio, boolean trabajado, Integer nivel) {
         this.tipo = tipo;
         this.tamano = tamano;
         this.capacidad = capacidad;
         this.precio = precio;
         this.trabajado = trabajado;
+        this.nivel = nivel;
+    }
+
+    public Integer getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(Integer nivel) {
+        this.nivel = nivel;
     }
 
     public String getTipo() {
@@ -56,7 +66,7 @@ public class Terreno {
     }
 
     public String toCSV() {
-        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado;
+        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado + "," + this.nivel;
     }
 
     @Override
@@ -67,6 +77,7 @@ public class Terreno {
                 ", capacidad=" + capacidad +
                 ", precio=" + precio +
                 ", trabajado=" + trabajado +
+                ", nivel=" + nivel +
                 '}';
     }
 }

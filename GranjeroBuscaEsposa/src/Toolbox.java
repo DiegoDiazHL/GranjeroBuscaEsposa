@@ -50,7 +50,7 @@ public class Toolbox {
         return new Usuario(a, null);
     }
 
-    public static void vender(Usuario usuario, ArrayList<MateriaPrima> p) {
+    public static void vender(Usuario usuario, ArrayList<MateriaPrima> p, ArrayList<Terreno> ter) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Quieres vender? Si/No");
         String a = sc.nextLine();
@@ -226,5 +226,39 @@ public class Toolbox {
             System.out.println("Se ha cobrado el alquiler del terreno te han cobrado " + cobro + " ahora tienes " + usuario.getMonedero());
         }
 
+    }
+    public static void mejorarTerreno(ArrayList<Terreno> ter, Usuario usuario){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Qué quieres mejorar? Granja o Huerta");
+        String a = sc.nextLine();
+        if(usuario.getNivel() == 5 || usuario.getNivel() == 10) {
+            for (Terreno t : ter) {
+                int coste = (t.getPrecio() * 2);
+                if (usuario.getMonedero() >= coste) {
+                    if (t.getTipo().equalsIgnoreCase(a)) {
+                        System.out.println("Selecciona a que nivel lo quieres mejorar, 1 o superior.");
+                        int b = Integer.parseInt(sc.nextLine());
+                        if (t.getNivel() < b) {
+                            t.setNivel(b);
+                            t.setPrecio(t.getPrecio() + 1000);
+                            usuario.setMonedero(usuario.getMonedero() - coste);
+                            System.out.println("Enhorabuena tu terreno ha subido a nivel " + t.getNivel() + " con un coste de " + coste + " , actualmente tienes " + usuario.getMonedero());
+                            break;
+                        }else if(t.getNivel() >= b){
+                            System.out.println("Error, tu nivel actual es igual o mayor al que quieres mejorar, tu nivel actual es " + usuario.getNivel() + " selecciona un nivel superior a " + b);
+                            break;
+                        }
+                    } else if (!t.getTipo().equalsIgnoreCase(a) || !t.getTipo().equalsIgnoreCase(a)) {
+                        System.out.println("Introduce un tipo válido de terreno, huerta o granja.");
+                        break;
+                    }
+                }else if(usuario.getMonedero() < coste){
+                    System.out.println("No tienes dinero suficiente para mejorar el terreno, el precio de la mejora es de " + coste + " y tienes un tal de " + usuario.getMonedero());
+                    break;
+                }
+            }
+        }else{
+            System.out.println("No tienes nivel suficiente para poder mejorar, tu nivel actual es " + usuario.getNivel());
+        }
     }
 }
