@@ -46,7 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Ejecutable.executor": "Debug",
+    "Application.Ejecutable.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "diegov2(brancheoqueteveo)",
@@ -83,16 +83,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="casino" />
     <option name="LAST_COMMIT_MESSAGE" value="casino" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GranjeroBuscaEsposa/src/Toolbox.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

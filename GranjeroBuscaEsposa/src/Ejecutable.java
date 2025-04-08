@@ -16,10 +16,10 @@ public class Ejecutable {
         ArrayList<MateriaPrima> p = inicializarMateriaPrima();
         ArrayList<Vehiculo> ve = inicializarVehiculos();
         ArrayList<Terreno> ter = new ArrayList<>();
-        Terreno t1 = new Terreno("granja", 2, 10, 1000, FALSE);
         Terreno t2 = new Terreno("huerta", 2, 10, 1000, FALSE);
-        ter.add(t1);
+        Terreno t1 = new Terreno("granja", 2, 10, 1000, FALSE);
         ter.add(t2);
+        ter.add(t1);
         Usuario nuevoUsuario = new Usuario("Invitado", null);
         Scanner sc = new Scanner(System.in);
 

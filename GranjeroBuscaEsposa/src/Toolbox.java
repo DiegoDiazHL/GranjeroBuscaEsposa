@@ -23,8 +23,8 @@ public class Toolbox {
                     String b = sc.nextLine();
                     if (b.equalsIgnoreCase("si")) {
                         t.setTrabajado(true);
-                        usuario.setResistencia(usuario.getResistencia() - 50);
-                        usuario.setExperiencia(usuario.getExperiencia() + 20);
+                        usuario.setResistencia(usuario.getResistencia() - 25);
+                        usuario.setExperiencia(usuario.getExperiencia() + 10);
                         System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                         System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
                         break;
@@ -36,8 +36,9 @@ public class Toolbox {
                     System.out.println("El terreno ya está trabajado");
                     break;
                 }
-            } else {
+            } else if(!t.getTipo().equalsIgnoreCase("granja") || !t.getTipo().equalsIgnoreCase("huerta")){
                 System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
+                break;
             }
         }
     }
@@ -138,8 +139,10 @@ public class Toolbox {
                                     usuario.setExperiencia(usuario.getExperiencia() + 20);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                                    break;
                                 } else {
                                     System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                                    break;
                                 }
                             }
                         } else if (usuario.getVehiculo().getCategoria() == 2) {
@@ -150,27 +153,33 @@ public class Toolbox {
                                     usuario.setExperiencia(usuario.getExperiencia() + 20);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                                    break;
                                 } else {
                                     System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                                    break;
                                 }
                             }
                         }
-                        if (usuario.getVehiculo().getCategoria() == 3) {
+                        else if (usuario.getVehiculo().getCategoria() == 3) {
                             if (t.getTipo().equals(usuario.getVehiculo().getFuncion())) {
                                 if (usuario.getResistencia() < 15) {
                                     t.setTrabajado(true);
                                     usuario.setExperiencia(usuario.getExperiencia() + 20);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                                    break;
                                 } else {
                                     System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                                    break;
                                 }
                             }
                         } else {
                             System.out.println("No cuentas con ningún vehiculo en propiedad " + usuario.getVehiculo());
+                            break;
                         }
                     } else {
                         System.out.println("El terreno ya está trabajado");
+                        break;
                     }
                 }
             } else {
