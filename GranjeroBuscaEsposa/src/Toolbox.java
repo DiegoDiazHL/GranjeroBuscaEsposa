@@ -51,26 +51,33 @@ public class Toolbox {
     }
 
     public static void vender(Usuario usuario, ArrayList<MateriaPrima> p, ArrayList<Terreno> ter) {
-       Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Random random = new Random();
-       System.out.println("¿Quieres vender? Si/No");
-       String a = sc.nextLine();
-       if (a.equalsIgnoreCase("si")) {
+        System.out.println("¿Quieres vender? Si/No");
+        String a = sc.nextLine();
+        if (a.equalsIgnoreCase("si")) {
             System.out.println("¿De que tipo de terreno quieres vender? Granja o huerta.");
-          String b = sc.nextLine();
+            String b = sc.nextLine();
             if (b.equalsIgnoreCase("granja")) {
                 for (Terreno t : ter) {
                     if (t.getTipo().equalsIgnoreCase(b)) {
                         System.out.println("¿Qué quieres vender?Elige entre Gallinas o Vacas ");
-                            String c = sc.nextLine();
-                            for (MateriaPrima pe : p){
-                                if (pe.getTipo().equalsIgnoreCase(c)){
-                                    int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2,5, random)) * usuario.getNivel();
+                        String c = sc.nextLine();
+                        for (MateriaPrima pe : p) {
+                            if (pe.getTipo().equalsIgnoreCase(c)) {
+                                if (pe.isAlimentado()) {
+                                    int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2, 5, random)) * usuario.getNivel();
                                     usuario.setMonedero(usuario.getMonedero() + ganancia);
                                     System.out.println("Has vendido " + c + " por un total de " + ganancia);
+                                    pe.setAlimentado(false);
+                                    break;
+                                } else if (!pe.isAlimentado()) {
+                                    System.out.println("Debes alimentar los animales para poder vender.");
+                                    break;
                                 }
                             }
-                    }else {
+                        }
+                    } else {
                         System.out.println("Error al elegir entre gallinas o vacas.");
                     }
 
@@ -80,14 +87,21 @@ public class Toolbox {
                     if (t.getTipo().equalsIgnoreCase(b)) {
                         System.out.println("¿Qué quieres vender?Elige entre Tomates o Patatas ");
                         String c = sc.nextLine();
-                        for (MateriaPrima pe : p){
-                            if (pe.getTipo().equalsIgnoreCase(c)){
-                                int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2,5, random)) * usuario.getNivel();
-                                usuario.setMonedero(usuario.getMonedero() + ganancia);
-                                System.out.println("Has vendido " + c + " por un total de " + ganancia);
+                        for (MateriaPrima pe : p) {
+                            if (pe.getTipo().equalsIgnoreCase(c)) {
+                                if (pe.isAlimentado()) {
+                                    int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2, 5, random)) * usuario.getNivel();
+                                    usuario.setMonedero(usuario.getMonedero() + ganancia);
+                                    System.out.println("Has vendido " + c + " por un total de " + ganancia);
+                                    pe.setAlimentado(false);
+                                    break;
+                                } else if (!pe.isAlimentado()) {
+                                    System.out.println("Debes regar los cultivos para poder vender");
+                                    break;
+                                }
                             }
                         }
-                    }else {
+                    } else {
                         System.out.println("Error al elegir entre patatas o tomates.");
                     }
 
@@ -95,7 +109,7 @@ public class Toolbox {
             } else if (!b.equalsIgnoreCase("granja") && !b.equalsIgnoreCase("huerta")) {
                 System.out.println("Error al elegir entre granja o huerta");
             }
-       }else{
+        } else {
             System.out.println("Saliendo de la tienda...");
         }
     }
@@ -246,21 +260,22 @@ public class Toolbox {
         System.out.println("¿Quieres dormir? Si/No: ");
         String a = sc.nextLine();
         if (a.equalsIgnoreCase("Si")) {
-            contador = +1;
+            contador++;
             usuario.setResistencia(usuario.getResistenciaMaxima());
             System.out.println("Has descansado con exito tu resistencia se ha reestablecido a " + usuario.getResistencia() + " llevas un total de " + contador + " días.");
+
             int cobro = 10 * usuario.getNivel();
             usuario.setMonedero(usuario.getMonedero() - cobro);
             System.out.println("Se ha cobrado el alquiler del terreno te han cobrado " + cobro + " ahora tienes " + usuario.getMonedero());
-            if (contador >= 1) {
-                int resultado = generateRandomNumber(0, 40, random);
-                if (resultado == 9) {
-                    int perdida = usuario.getMonedero() - 200;
-                    usuario.setMonedero(usuario.getMonedero() - perdida);
-                    System.out.println("Un tornado ha destrozado tu granja, has tenido que pagar " + perdida + " tu dinero actual es de " + usuario.getMonedero());
-                }
 
+            int resultado = generateRandomNumber(0, 40, random);
+            if (resultado == 9) {
+                int perdida = 200 * usuario.getNivel();
+                usuario.setMonedero(usuario.getMonedero() - perdida);
+                System.out.println("Un tornado ha destrozado tu granja, has tenido que pagar " + perdida + " tu dinero actual es de " + usuario.getMonedero());
             }
+
+
         }
 
     }
