@@ -36,7 +36,7 @@ public class Toolbox {
                     System.out.println("El terreno ya está trabajado");
                     break;
                 }
-            } else if (!t.getTipo().equalsIgnoreCase("granja") || !t.getTipo().equalsIgnoreCase("huerta")) {
+            } else if (!t.getTipo().equalsIgnoreCase("granja") && !t.getTipo().equalsIgnoreCase("huerta")) {
                 System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
                 break;
             }
@@ -51,24 +51,52 @@ public class Toolbox {
     }
 
     public static void vender(Usuario usuario, ArrayList<MateriaPrima> p, ArrayList<Terreno> ter) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("¿Quieres vender? Si/No");
-        String a = sc.nextLine();
-        if (a.equalsIgnoreCase("si")) {
-            System.out.println("¿Que quieres vender?Vacas,Gallinas,Patatas,Tomates ");
-            String b = sc.nextLine();
-            for (MateriaPrima pe : p) {
-                if (pe.isAlimentado() && pe.getRecurso() != 0) {
-                    if (pe.getTipo().equalsIgnoreCase(b)) {
-                        int precioVenta = (int) ((pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio()));
-                        usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
-                        pe.setAlimentado(FALSE);
-                        pe.setRecurso(0);
-                        System.out.println("Has vendido " + b + " por " + precioVenta + " monedas.");
-                        break;
+       Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+       System.out.println("¿Quieres vender? Si/No");
+       String a = sc.nextLine();
+       if (a.equalsIgnoreCase("si")) {
+            System.out.println("¿De que tipo de terreno quieres vender? Granja o huerta.");
+          String b = sc.nextLine();
+            if (b.equalsIgnoreCase("granja")) {
+                for (Terreno t : ter) {
+                    if (t.getTipo().equalsIgnoreCase(b)) {
+                        System.out.println("¿Qué quieres vender?Elige entre Gallinas o Vacas ");
+                            String c = sc.nextLine();
+                            for (MateriaPrima pe : p){
+                                if (pe.getTipo().equalsIgnoreCase(c)){
+                                    int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2,5, random)) * usuario.getNivel();
+                                    usuario.setMonedero(usuario.getMonedero() + ganancia);
+                                    System.out.println("Has vendido " + c + " por un total de " + ganancia);
+                                }
+                            }
+                    }else {
+                        System.out.println("Error al elegir entre gallinas o vacas.");
                     }
+
                 }
+            } else if (b.equalsIgnoreCase("huerta")) {
+                for (Terreno t : ter) {
+                    if (t.getTipo().equalsIgnoreCase(b)) {
+                        System.out.println("¿Qué quieres vender?Elige entre Tomates o Patatas ");
+                        String c = sc.nextLine();
+                        for (MateriaPrima pe : p){
+                            if (pe.getTipo().equalsIgnoreCase(c)){
+                                int ganancia = (pe.getRecurso() * pe.getPrecio()) * (generateRandomNumber(2,5, random)) * usuario.getNivel();
+                                usuario.setMonedero(usuario.getMonedero() + ganancia);
+                                System.out.println("Has vendido " + c + " por un total de " + ganancia);
+                            }
+                        }
+                    }else {
+                        System.out.println("Error al elegir entre patatas o tomates.");
+                    }
+
+                }
+            } else if (!b.equalsIgnoreCase("granja") && !b.equalsIgnoreCase("huerta")) {
+                System.out.println("Error al elegir entre granja o huerta");
             }
+       }else{
+            System.out.println("Saliendo de la tienda...");
         }
     }
 
