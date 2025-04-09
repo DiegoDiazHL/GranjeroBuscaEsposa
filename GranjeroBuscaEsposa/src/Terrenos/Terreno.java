@@ -17,6 +17,10 @@ public class Terreno {
         this.nivel = nivel;
     }
 
+    public String toCSV() {
+        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado + "," + this.nivel;
+    }
+
     public Integer getNivel() {
         return nivel;
     }
@@ -63,10 +67,6 @@ public class Terreno {
 
     public void setTrabajado(boolean trabajado) {
         this.trabajado = trabajado;
-    }
-
-    public String toCSV() {
-        return this.tipo + "," + this.tamano + "," + this.capacidad + "," + this.precio + "," + this.trabajado + "," + this.nivel;
     }
 
     @Override

@@ -1,4 +1,4 @@
-import Ficheros.CargarPartida;
+import Ficheros.*;
 import Ficheros.NuevaPartida;
 import Terrenos.MateriaPrima;
 import Ficheros.GuardarPartida;
@@ -33,7 +33,7 @@ public class Ejecutable {
                     ejecutarMenuJuego(nuevoUsuario, ter, ve, p, sc);
                     break;
                 case 2:
-                    cargarPartidaExistente(nuevoUsuario, sc);
+                    cargarPartidaExistente(nuevoUsuario, sc,ter);
                     ejecutarMenuJuego(nuevoUsuario, ter, ve, p, sc);
                     break;
                 case 3:
@@ -80,9 +80,9 @@ public class Ejecutable {
         return nuevoUsuario;
     }
 
-    private static void cargarPartidaExistente(Usuario usuario, Scanner sc) {
+    private static void cargarPartidaExistente(Usuario usuario, Scanner sc,ArrayList<Terreno> ter) {
         System.out.println("Selecciona tu partida guardada");
-        CargarPartida.cargarPartida(usuario, sc);
+        CargarPartida.cargarPartida(usuario, sc, ter);
         System.out.println("Bienvenido de nuevo " + usuario.getNombre());
     }
 
@@ -108,7 +108,7 @@ public class Ejecutable {
                     Toolbox.tirarRuleta(usuario);
                     break;
                 case 6:
-                    GuardarPartida.guardarPartida(usuario);
+                    GuardarPartida.guardarPartida(usuario,ter);
                     break;
                 case 7:
                     Toolbox.dormir(usuario);

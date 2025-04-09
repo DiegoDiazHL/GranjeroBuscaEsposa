@@ -1,15 +1,16 @@
 package Ficheros;
 
+import Terrenos.Terreno;
 import Usuario_Vehiculo.Usuario;
 import Usuario_Vehiculo.Vehiculo;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 import java.io.FileNotFoundException;
 
 public class CargarPartida {
-    public static void cargarPartida(Usuario usuario, Scanner sc) {
+    public static void cargarPartida(Usuario usuario, Scanner sc, ArrayList<Terreno> ter) {
         System.out.println("Introduce el nombre de la partida a cargar:");
         String nombreArchivo = sc.nextLine().trim();
         nombreArchivo = nombreArchivo.replaceAll("[\\\\/:*?\"<>|]", "_");
@@ -33,8 +34,9 @@ public class CargarPartida {
                 nLinea++;
                 String linea = scFile.nextLine();
                 String[] partes = linea.split(",");
-                if (partes.length == 10) {
+                if (partes.length == 22) {
                     try {
+                        // Cargar datos del usuario
                         usuario.setNombre(partes[0].trim());
                         usuario.setMonedero(Integer.parseInt(partes[1].trim()));
                         boolean tieneVehiculo = Boolean.parseBoolean(partes[2].trim().toLowerCase());
@@ -46,6 +48,7 @@ public class CargarPartida {
                         usuario.setNivel(nivel);
                         usuario.setResistencia(resistencia);
 
+                        // Cargar vehículo si lo tiene
                         if (tieneVehiculo) {
                             String nombreVehiculo = partes[3].trim();
                             String funcionVehiculo = partes[4].trim();
@@ -60,6 +63,31 @@ public class CargarPartida {
                             System.out.println("No se cargó ningún vehículo.");
                         }
 
+                        // Cargar los terrenos
+                        String tipoTerreno1 = partes[10].trim();
+                        int tamanoTerreno1 = Integer.parseInt(partes[11].trim());
+                        int capacidadTerreno1 = Integer.parseInt(partes[12].trim());
+                        int precioTerreno1 = Integer.parseInt(partes[13].trim());
+                        boolean trabajadoTerreno1 = Boolean.parseBoolean(partes[14].trim().toLowerCase());
+                        int nivelTerreno1 = Integer.parseInt(partes[15].trim());
+
+                        Terreno t2 = new Terreno(tipoTerreno1, tamanoTerreno1, capacidadTerreno1, precioTerreno1, trabajadoTerreno1, nivelTerreno1);
+                        ter.add(t2);
+
+                        String tipoTerreno2 = partes[16].trim();
+                        int tamanoTerreno2 = Integer.parseInt(partes[17].trim());
+                        int capacidadTerreno2 = Integer.parseInt(partes[18].trim());
+                        int precioTerreno2 = Integer.parseInt(partes[19].trim());
+                        boolean trabajadoTerreno2 = Boolean.parseBoolean(partes[20].trim().toLowerCase());
+                        int nivelTerreno2 = Integer.parseInt(partes[21].trim());
+
+                        Terreno t1 = new Terreno(tipoTerreno2, tamanoTerreno2, capacidadTerreno2, precioTerreno2, trabajadoTerreno2, nivelTerreno2);
+                        ter.add(t1);
+
+                        System.out.println("Terrenos cargados:");
+                        System.out.println("- " + t1);
+                        System.out.println("- " + t2);
+
                         System.out.println("Datos de usuario cargados para " + usuario.getNombre() + ": Monedero=" + usuario.getMonedero() + ", Experiencia=" + usuario.getExperiencia() + ", Nivel=" + usuario.getNivel() + ", Resistencia=" + usuario.getResistencia());
                         datosCargados = true;
 
@@ -69,7 +97,7 @@ public class CargarPartida {
                         System.out.println("Error inesperado al procesar la línea " + nLinea + ": " + linea + " - " + e.getMessage());
                     }
                 } else {
-                    System.out.println("Formato incorrecto en la línea " + nLinea + ": " + linea + ". Se esperaban 10 columnas.");
+                    System.out.println("Formato incorrecto en la línea " + nLinea + ": " + linea + ". Se esperaban 22 columnas.");
                 }
             }
 
