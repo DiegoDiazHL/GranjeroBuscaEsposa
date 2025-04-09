@@ -36,7 +36,7 @@ public class Toolbox {
                     System.out.println("El terreno ya está trabajado");
                     break;
                 }
-            } else if(!t.getTipo().equalsIgnoreCase("granja") || !t.getTipo().equalsIgnoreCase("huerta")){
+            } else if (!t.getTipo().equalsIgnoreCase("granja") || !t.getTipo().equalsIgnoreCase("huerta")) {
                 System.out.println("Error al elegir terreno para trabajar, elige entre granja o huerta");
                 break;
             }
@@ -60,7 +60,7 @@ public class Toolbox {
             for (MateriaPrima pe : p) {
                 if (pe.isAlimentado() && pe.getRecurso() != 0) {
                     if (pe.getTipo().equalsIgnoreCase(b)) {
-                        int precioVenta = (int) (pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio());
+                        int precioVenta = (int) ((pe.getRecurso() * (Math.random() * 4 + 2) * pe.getPrecio()));
                         usuario.setMonedero((int) (precioVenta + usuario.getMonedero()));
                         pe.setAlimentado(FALSE);
                         pe.setRecurso(0);
@@ -159,8 +159,7 @@ public class Toolbox {
                                     break;
                                 }
                             }
-                        }
-                        else if (usuario.getVehiculo().getCategoria() == 3) {
+                        } else if (usuario.getVehiculo().getCategoria() == 3) {
                             if (t.getTipo().equals(usuario.getVehiculo().getFuncion())) {
                                 if (usuario.getResistencia() < 15) {
                                     t.setTrabajado(true);
@@ -214,6 +213,7 @@ public class Toolbox {
 
     public static void dormir(Usuario usuario) {
         Scanner sc = new Scanner(System.in);
+        Random random = new Random();
         int contador = 0;
         System.out.println("¿Quieres dormir? Si/No: ");
         String a = sc.nextLine();
@@ -224,14 +224,24 @@ public class Toolbox {
             int cobro = 10 * usuario.getNivel();
             usuario.setMonedero(usuario.getMonedero() - cobro);
             System.out.println("Se ha cobrado el alquiler del terreno te han cobrado " + cobro + " ahora tienes " + usuario.getMonedero());
+            if (contador >= 1) {
+                int resultado = generateRandomNumber(0, 40, random);
+                if (resultado == 9) {
+                    int perdida = usuario.getMonedero() - 200;
+                    usuario.setMonedero(usuario.getMonedero() - perdida);
+                    System.out.println("Un tornado ha destrozado tu granja, has tenido que pagar " + perdida + " tu dinero actual es de " + usuario.getMonedero());
+                }
+
+            }
         }
 
     }
-    public static void mejorarTerreno(ArrayList<Terreno> ter, Usuario usuario){
+
+    public static void mejorarTerreno(ArrayList<Terreno> ter, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
         System.out.println("¿Qué quieres mejorar? Granja o Huerta");
         String a = sc.nextLine();
-        if(usuario.getNivel() == 5 || usuario.getNivel() == 10) {
+        if (usuario.getNivel() == 5 || usuario.getNivel() == 10) {
             for (Terreno t : ter) {
                 int coste = (t.getPrecio() * 2);
                 if (usuario.getMonedero() >= coste) {
@@ -244,7 +254,7 @@ public class Toolbox {
                             usuario.setMonedero(usuario.getMonedero() - coste);
                             System.out.println("Enhorabuena tu terreno ha subido a nivel " + t.getNivel() + " con un coste de " + coste + " , actualmente tienes " + usuario.getMonedero());
                             break;
-                        }else if(t.getNivel() >= b){
+                        } else if (t.getNivel() >= b) {
                             System.out.println("Error, tu nivel actual es igual o mayor al que quieres mejorar, tu nivel actual es " + usuario.getNivel() + " selecciona un nivel superior a " + b);
                             break;
                         }
@@ -252,12 +262,12 @@ public class Toolbox {
                         System.out.println("Introduce un tipo válido de terreno, huerta o granja.");
                         break;
                     }
-                }else if(usuario.getMonedero() < coste){
+                } else if (usuario.getMonedero() < coste) {
                     System.out.println("No tienes dinero suficiente para mejorar el terreno, el precio de la mejora es de " + coste + " y tienes un tal de " + usuario.getMonedero());
                     break;
                 }
             }
-        }else{
+        } else {
             System.out.println("No tienes nivel suficiente para poder mejorar, tu nivel actual es " + usuario.getNivel());
         }
     }
