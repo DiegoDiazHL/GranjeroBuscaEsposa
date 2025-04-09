@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84877b34-e46c-4ced-add7-32157e90516f" name="Changes" comment="casino">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ejecutable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/CargarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/CargarPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/GuardarPartida.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Ficheros/GuardarPartida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Terreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/GranjeroBuscaEsposa/src/Terrenos/Terreno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Ejecutable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Terrenos/Terreno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Terrenos/Terreno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Toolbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GranjeroBuscaEsposa/Toolbox.class" afterDir="false" />
-    </list>
+    <list default="true" id="84877b34-e46c-4ced-add7-32157e90516f" name="Changes" comment="t" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,10 +72,20 @@
       <option name="presentableId" value="Default" />
       <updated>1743521757701</updated>
     </task>
+    <task id="LOCAL-00001" summary="t">
+      <option name="closed" value="true" />
+      <created>1744186900969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744186900969</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="casino" />
-    <option name="LAST_COMMIT_MESSAGE" value="casino" />
+    <MESSAGE value="t" />
+    <option name="LAST_COMMIT_MESSAGE" value="t" />
   </component>
 </project>
