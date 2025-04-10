@@ -114,10 +114,13 @@ public class Ejecutable {
                     Toolbox.dormir(usuario);
                     break;
                 case 8:
-                    System.out.println("Saliendo");
+                    Toolbox.mejorarTerreno(ter, usuario);
+                    break;
+                case 9:
+                    System.out.println("Saliendo del juego");
                     break;
             }
-        } while (opcion != 8);
+        } while (opcion != 9);
     }
 
     private static void mostrarMenuJuego() {
@@ -129,6 +132,7 @@ public class Ejecutable {
         System.out.println("5. Tirar ruleta");
         System.out.println("6. Guardar Partida");
         System.out.println("7. Dormir");
-        System.out.println("8. Salir");
+        System.out.println("8. Mejorar terreno");
+        System.out.println("9. Salir");
     }
 }

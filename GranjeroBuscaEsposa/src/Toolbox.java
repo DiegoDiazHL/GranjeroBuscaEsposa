@@ -22,12 +22,21 @@ public class Toolbox {
                     System.out.println("¿Quieres trabajar? Si/No");
                     String b = sc.nextLine();
                     if (b.equalsIgnoreCase("si")) {
-                        t.setTrabajado(true);
-                        usuario.setResistencia(usuario.getResistencia() - 25);
-                        usuario.setExperiencia(usuario.getExperiencia() + 10);
-                        System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
-                        System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
-                        break;
+                        if(usuario.getResistencia() >= 25){
+                            System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
+                            String c = sc.nextLine();
+                            if (t.getTipo().equalsIgnoreCase(c)) {
+                                t.setTrabajado(true);
+                                usuario.setResistencia(usuario.getResistencia() - 25);
+                                usuario.setExperiencia(usuario.getExperiencia() + 10);
+                                System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                                System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                            } else {
+                                System.out.println("Error al elegir el tipo de terreno, elige entre huerta o granja");
+                            }
+                        } else if (usuario.getResistencia() < 25) {
+                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                        }
                     } else {
                         System.out.println("Saliendo . . .");
                         break;
@@ -242,7 +251,7 @@ public class Toolbox {
 
         if (a <= usuario.getMonedero()) {
             int premio = a * (generateRandomNumber(0, 2, random));
-            usuario.setMonedero(usuario.getMonedero() + premio);
+            usuario.setMonedero((usuario.getMonedero() - a) + premio);
             System.out.println("Ganaste " + premio + " monedas!");
         } else {
             System.out.println("No tienes suficientes monedas.");
