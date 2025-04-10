@@ -23,7 +23,7 @@ public class GuardarPartida {
 
         try {
 
-            fw = new FileWriter(f);
+            fw = new FileWriter(f,false);
 
 
             String linea = usuario.toCSV();
