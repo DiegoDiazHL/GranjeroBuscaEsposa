@@ -79,6 +79,7 @@ public class Toolbox {
                                     usuario.setMonedero(usuario.getMonedero() + ganancia);
                                     System.out.println("Has vendido " + c + " por un total de " + ganancia);
                                     pe.setAlimentado(false);
+                                    t.setTrabajado(false);
                                     break;
                                 } else if (!pe.isAlimentado()) {
                                     System.out.println("Debes alimentar los animales para poder vender.");
@@ -86,7 +87,7 @@ public class Toolbox {
                                 }
                             }
                         }
-                    } else {
+                    } else if ((!t.getTipo().equalsIgnoreCase("gallinas") && !t.getTipo().equalsIgnoreCase("vacas"))) {
                         System.out.println("Error al elegir entre gallinas o vacas.");
                     }
 
@@ -103,6 +104,7 @@ public class Toolbox {
                                     usuario.setMonedero(usuario.getMonedero() + ganancia);
                                     System.out.println("Has vendido " + c + " por un total de " + ganancia);
                                     pe.setAlimentado(false);
+                                    t.setTrabajado(false);
                                     break;
                                 } else if (!pe.isAlimentado()) {
                                     System.out.println("Debes regar los cultivos para poder vender");
@@ -110,7 +112,7 @@ public class Toolbox {
                                 }
                             }
                         }
-                    } else {
+                    } else if ((!t.getTipo().equalsIgnoreCase("tomates") && !t.getTipo().equalsIgnoreCase("patatas"))) {
                         System.out.println("Error al elegir entre patatas o tomates.");
                     }
 
@@ -186,8 +188,8 @@ public class Toolbox {
                             if (t.getTipo().equals(usuario.getVehiculo().getFuncion())) {
                                 if (usuario.getResistencia() <= 30) {
                                     t.setTrabajado(true);
-                                    usuario.setResistencia(usuario.getResistencia() - 30);
-                                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                    usuario.setResistencia(usuario.getResistencia() - 20);
+                                    usuario.setExperiencia(usuario.getExperiencia() + 30);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
                                     break;
@@ -200,8 +202,8 @@ public class Toolbox {
                             if (t.getTipo().equals(usuario.getVehiculo().getFuncion())) {
                                 if (usuario.getResistencia() <= 15) {
                                     t.setTrabajado(true);
-                                    usuario.setResistencia(usuario.getResistencia() - 15);
-                                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                    usuario.setResistencia(usuario.getResistencia() - 10);
+                                    usuario.setExperiencia(usuario.getExperiencia() + 30);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
                                     break;
@@ -214,7 +216,7 @@ public class Toolbox {
                             if (t.getTipo().equals(usuario.getVehiculo().getFuncion())) {
                                 if (usuario.getResistencia() < 15) {
                                     t.setTrabajado(true);
-                                    usuario.setExperiencia(usuario.getExperiencia() + 20);
+                                    usuario.setExperiencia(usuario.getExperiencia() + 40);
                                     System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
                                     System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
                                     break;
