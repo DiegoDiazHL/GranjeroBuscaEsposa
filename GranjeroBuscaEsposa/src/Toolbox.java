@@ -3,6 +3,7 @@ import Terrenos.Terreno;
 import Usuario_Vehiculo.Usuario;
 import Usuario_Vehiculo.Vehiculo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,6 +12,53 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class Toolbox {
+
+    public static void infoUsuario(Usuario usuario) {
+        System.out.println("Dinero: " + usuario.getMonedero());
+        System.out.println("Experiencia: " + usuario.getExperiencia());
+        System.out.println("Nivel: " + usuario.getNivel());
+        System.out.println("Resistencia: " + usuario.getResistencia());
+        if (usuario.getVehiculo() != null) {
+            System.out.println("Vehículo: " + usuario.getVehiculo().getNombre());
+        } else {
+            System.out.println("No tienes vehículo.");
+        }
+    }
+
+    public static void alimentar(ArrayList<MateriaPrima> p,Usuario usuario){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Qué tipo de terreno quieres alimentar, vacas, gallinas, patatas y tomates?");
+        String a = sc.nextLine();
+        for (MateriaPrima m : p){
+            if (m.getTipo().equalsIgnoreCase(a)){
+                if (!m.isAlimentado()){
+                    System.out.println("¿Quieres alimentar? Si/No");
+                    String b = sc.nextLine();
+                    if (b.equalsIgnoreCase("si")){
+                        if (usuario.getResistencia() >= 10){
+                            m.setAlimentado(true);
+                            usuario.setResistencia(usuario.getResistencia() - 10);
+                            usuario.setExperiencia(usuario.getExperiencia() + 10);
+                            System.out.println("Tu resistencia después de trabajar:" + usuario.getResistencia());
+                            System.out.println("Tu experiencia actual es de:" + usuario.getExperiencia());
+                        } else {
+                            System.out.println("No tienes la resistencia necesaria, tu resistencia actual es " + usuario.getResistencia());
+                        }
+                    } else {
+                        System.out.println("Saliendo . . .");
+                        break;
+                    }
+                } else {
+                    System.out.println("El terreno ya está alimentado");
+                    break;
+                }
+            } else if (!m.getTipo().equalsIgnoreCase("patatas") && !m.getTipo().equalsIgnoreCase("tomates" ) && !m.getTipo().equalsIgnoreCase("vacas") && !m.getTipo().equalsIgnoreCase("gallinas")) {
+                System.out.println("Error al elegir terreno para alimentar, elige entre granja o huerta");
+                break;
+            }
+        }
+    }
+
 
     public static void trabajar(ArrayList<Terreno> ter, Usuario usuario) {
         Scanner sc = new Scanner(System.in);
@@ -23,9 +71,7 @@ public class Toolbox {
                     String b = sc.nextLine();
                     if (b.equalsIgnoreCase("si")) {
                         if(usuario.getResistencia() >= 25){
-                            System.out.println("¿Qué tipo de terreno quieres trabajar, huerta o granja?");
-                            String c = sc.nextLine();
-                            if (t.getTipo().equalsIgnoreCase(c)) {
+                            if (t.getTipo().equalsIgnoreCase(a)) {
                                 t.setTrabajado(true);
                                 usuario.setResistencia(usuario.getResistencia() - 25);
                                 usuario.setExperiencia(usuario.getExperiencia() + 10);
@@ -70,6 +116,10 @@ public class Toolbox {
             if (b.equalsIgnoreCase("granja")) {
                 for (Terreno t : ter) {
                     if (t.getTipo().equalsIgnoreCase(b)) {
+                        if(!t.isTrabajado()){
+                            System.out.println("El terreno no ha sido trabajado, no puedes vender.");
+                            break;
+                        }
                         System.out.println("¿Qué quieres vender?Elige entre Gallinas o Vacas ");
                         String c = sc.nextLine();
                         for (MateriaPrima pe : p) {
@@ -85,16 +135,20 @@ public class Toolbox {
                                     System.out.println("Debes alimentar los animales para poder vender.");
                                     break;
                                 }
+                            } else if ((!pe.getTipo().equalsIgnoreCase("gallinas") && !pe.getTipo().equalsIgnoreCase("vacas"))) {
+                                System.out.println("Error al elegir entre gallinas o vacas.");
                             }
                         }
-                    } else if ((!t.getTipo().equalsIgnoreCase("gallinas") && !t.getTipo().equalsIgnoreCase("vacas"))) {
-                        System.out.println("Error al elegir entre gallinas o vacas.");
                     }
 
                 }
             } else if (b.equalsIgnoreCase("huerta")) {
                 for (Terreno t : ter) {
                     if (t.getTipo().equalsIgnoreCase(b)) {
+                        if (!t.isTrabajado()){
+                            System.out.println("El terreno no ha sido trabajado, no puedes vender.");
+                            break;
+                        }
                         System.out.println("¿Qué quieres vender?Elige entre Tomates o Patatas ");
                         String c = sc.nextLine();
                         for (MateriaPrima pe : p) {
@@ -110,10 +164,10 @@ public class Toolbox {
                                     System.out.println("Debes regar los cultivos para poder vender");
                                     break;
                                 }
+                            } else if ((!pe.getTipo().equalsIgnoreCase("tomates") && !pe.getTipo().equalsIgnoreCase("patatas"))) {
+                                System.out.println("Error al elegir entre patatas o tomates.");
                             }
                         }
-                    } else if ((!t.getTipo().equalsIgnoreCase("tomates") && !t.getTipo().equalsIgnoreCase("patatas"))) {
-                        System.out.println("Error al elegir entre patatas o tomates.");
                     }
 
                 }
