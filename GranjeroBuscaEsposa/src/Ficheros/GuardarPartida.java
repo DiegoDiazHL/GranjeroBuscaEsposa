@@ -23,14 +23,14 @@ public class GuardarPartida {
 
         try {
 
-            fw = new FileWriter(f);
+            fw = new FileWriter(f,false);
 
 
             String linea = usuario.toCSV();
-            fw.write(linea + "\n");
+            fw.write(linea+ "," );
             for (Terreno t : ter){
-                String linea1 = t.toCSV();
-                fw.write(linea1 + "\n");
+                String linea1 = t.toCSV()+ ",";
+                fw.write(linea1);
             }
 
             System.out.println("Partida guardada exitosamente en " + f.getName());
